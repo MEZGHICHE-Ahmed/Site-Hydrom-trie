@@ -8,7 +8,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
+#d
 
 @app.route('/corse', methods=['GET', 'POST'])
 def corse():
