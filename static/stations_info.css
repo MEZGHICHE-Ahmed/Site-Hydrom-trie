@@ -2,6 +2,147 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: black;
     box-sizing: border-box;
-  }
+}
+
+p {
+    font-family: "Poppins", sans-serif;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 200vh;
+    margin: 0;
+    background-image: url("/static/images/river_stationsinfos.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-y: auto;
+    padding-top: 100px; /* Ajout de marge en haut pour compenser la position fixe du header */
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Ajout d'une couleur de fond pour le contraste */
+    position: fixed; /* Ajout d'une position fixe pour que le header reste en haut */
+    top: 0; /* Pour aligner le header en haut */
+    z-index: 999; /* Assure que le header est au-dessus du contenu */
+}
+
+header>a {
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: white; /* Changement de la couleur du texte pour améliorer la lisibilité */
+}
+
+header ol {
+    width: calc(100% - 200px); /* Largeur totale moins la largeur des éléments de la liste */
+    display: flex;
+    justify-content: flex-end; /* Alignement des éléments à droite */
+}
+
+header ol li {
+    font-weight: 600;
+    padding: 0 20px;
+    opacity: 0.6;
+    list-style: none; /* Pour supprimer les puces de la liste */
+}
+
+header ol li:first-child {
+    opacity: 1;
+}
+
+/* Container Styling */
+.container {
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 200px; /* Add margin-top to push content below the header */
+}
+  
+/* Box Styling */
+.box {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+  
+/* Block Styling */
+.block {
+    margin-bottom: 20px;
+}
+
+.block p {
+    margin: 0.5em 0;
+}
+
+/* Background Image Overlay */
+.bg-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Styling for Links */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Keyframes for Animation */
+@keyframes scaling {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes movement {
+    0% {
+        width: 20rem;
+        top: 10%;
+        right: 30%;
+        transform: rotate(0deg);
+    }
+    50% {
+        width: 50rem;
+        top: 20%;
+        right: -10%;
+        transform: rotate(180deg);
+    }
+    100% {
+        width: 20rem;
+        top: 10%;
+        right: 30%;
+        transform: rotate(360deg);
+    }
+}
+
+/* Font Styling for Headings */
+h1, h2, h3 {
+    font-family: "Poppins", sans-serif;
+    color: #333;
+}

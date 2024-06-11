@@ -3,13 +3,13 @@ from model import Site,Station,Observations
 
 app = Flask(__name__)
 
-# salut
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-#d
+
 
 @app.route('/corse', methods=['GET', 'POST'])
 def corse():
