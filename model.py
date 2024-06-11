@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import sqlite3
 
 
-DATABASE_FILE = "final\\db_hydro.db"
+DATABASE_FILE = "db_hydro.db"
 
 
 conn = sqlite3.connect(DATABASE_FILE, check_same_thread=False)
