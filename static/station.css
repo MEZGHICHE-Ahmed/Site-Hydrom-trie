@@ -1,0 +1,54 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/images/rivier_station.jpg");
+  background-size: cover; 
+  background-position: center;
+}
+
+/* Button styles */
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Form styles */
+form {
+  display: inline-block;
+}
+
+/* Spacing */
+br {
+  margin-bottom: 20px;
+}
+
+section {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}

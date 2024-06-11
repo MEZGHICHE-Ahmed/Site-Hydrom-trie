@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% block head %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='tout.css') }}">
+    <title>sites</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  {% endblock %}
+  </head>
+  {% block body %}
+  <body>
+      {% for station in stationsinfo %}
+      <p><strong>Code Station:</strong> {{ station.code_station }}</p>
+        <p><strong>Code Site:</strong> {{ station.code_site }}</p>
+        <p><strong>Libelle Site:</strong> {{ station.libelle_site }}</p>
+        <p><strong>Libelle Station:</strong> {{ station.libelle_station }}</p>
+        <p><strong>Type Station:</strong> {{ station.type_station }}</p>
+        <p><strong>Coordonnee X Station:</strong> {{ station.coordonnee_x_station }}</p>
+        <p><strong>Coordonnee Y Station:</strong> {{ station.coordonnee_y_station }}</p>
+        <p><strong>Longitude Station:</strong> {{ station.longitude_station }}</p>
+        <p><strong>Latitude Station:</strong> {{ station.latitude_station }}</p>
+        <p><strong>Altitude Ref Alti Station:</strong> {{ station.altitude_ref_alti_station }}</p>
+        <p><strong>Code Commune Station:</strong> {{ station.code_commune_station }}</p>
+        <p><strong>Libelle Commune:</strong> {{ station.libelle_commune }}</p>
+        <p><strong>Code Departement:</strong> {{ station.code_departement }}</p>
+        <p><strong>Code Region:</strong> {{ station.code_region }}</p>
+        <p><strong>Libelle Region:</strong> {{ station.libelle_region }}</p>
+        <p><strong>En Service:</strong> {{ station.en_service }}</p>
+        <p><strong>Date Fermeture Station:</strong> {{ station.date_fermeture_station }}</p>
+        <p><strong>Date Ouverture Station:</strong> {{ station.date_ouverture_station }}</p>
+      {% endfor %}
+      <p><strong>Moyenne du débit d'eau:</strong>5,412 cm/mois</p>
+  </body>
+  {% endblock %}
+</html>

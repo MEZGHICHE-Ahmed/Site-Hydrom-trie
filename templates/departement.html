@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% block head %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='departement.css') }}">
+    <title>Departements</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  {% endblock %}
+  </head>
+  {% block body %}
+  <body>
+    <div class="container">
+    <div class="box b1">
+      <h1> RESULTATS POUR {{ departements[0].libelle_region }}</h1>
+    </div>
+
+    <div class="box">
+
+      <form method="POST" action="{{ url_for(route_path, region_name=region_name) }}">
+        {% for departement in departements %}
+      <section class="block">
+        <p class="libelle">{{ departement.libelle_departement }}</p>
+      <p id="departementt">Departement : {{ departement.code_departement }}</p>
+    <p>Nombre de station(s) : {{departement.number}}</p>
+  <button id="bouton" type="submit" name="departementss" value="{{ departement.libelle_departement }}">Selection</button>
+</section>
+{% endfor %}
+</form>
+</div>
+</div>
+  </body>
+  {% endblock %}
+</html>
