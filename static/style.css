@@ -189,7 +189,7 @@ ol.info li p {
 }
 
 svg path:hover {
-  fill: blue;
+  fill: rgba(39, 99, 0, 0.692);
   transition: 1s;
   cursor: pointer;
 }

@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='tout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>Observations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +14,14 @@
   </head>
   {% block body %}
   <body>
+    <div class="navbar">
+      <header>
+          <a href="#">Hydrovision</a>
+          <ol>
+              <li><a href="{{ url_for('region') }}">Regions</a></li>
+              <li><a href="#">Top regions</a></li>
+          </ol>
+      </header>
     {% if not observations %}
       <p>La Station n'a pas enregistré d'observations à ce jour</p>
       {% else %}

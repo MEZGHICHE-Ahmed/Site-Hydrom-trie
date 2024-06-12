@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='station.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>sites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,17 +14,25 @@
   </head>
   {% block body %}
   <body>
+    <div class="navbar">
+      <header>
+          <a href="#">Hydrovision</a>
+          <ol>
+              <li><a href="{{ url_for('region') }}">Regions</a></li>
+              <li><a href="#">Top regions</a></li>
+          </ol>
+      </header>
     {% for station in stations %}
     <section>
     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
         <button type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
     </form>
     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-        <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel *temp*</button>
+        <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
     </form>
     
     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-    <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date) *temp*</button>
+    <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date)</button>
     </form>
   </section>
     <br>
