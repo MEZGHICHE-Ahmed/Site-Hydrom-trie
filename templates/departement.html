@@ -41,8 +41,8 @@
         {% for departement in departements %}
       <section class="block">
         <p class="libelle">{{ departement.libelle_departement }}</p>
-      <p id="departementt">Departement : {{ departement.code_departement }}</p>
-    <p>Nombre de station(s) : {{departement.number}}</p>
+      <p id="departementt">Departement : <span class="bold" > {{ departement.code_departement }}</span></p>
+    <p>Nombre de station(s) : <span class="bold" > {{departement.number}}</span></p>
   <button id="bouton" type="submit" name="departementss" value="{{ departement.libelle_departement }}">Selection</button>
 </section>
 {% endfor %}
