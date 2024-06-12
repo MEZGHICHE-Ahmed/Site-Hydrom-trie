@@ -13,52 +13,13 @@ body {
     background-image: url("/static/images/pexels-francesco-ungaro-1525041.jpg");  
     background-size: cover;
 }
-²
 
 /* Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 0;
-
-}
-
-header>a {
-    position: relative;
-    left: 12%;
-    font-weight: 700;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: black;
-}
-header ol {
-    position: relative;
-    right: 10%;
-    list-style-type: none;
-    display: flex;
-    width: calc(100% - 200px);
-    justify-content: flex-end;
-    
-}
-
-header ol li {
-    font-weight: 600;
-    padding: 0 20px;
-    opacity: 0.6;
-
-}
-
-
-header ol li:first-child {
-    opacity: 1;
-}
 
 /* Container Styling */
 .container {
     display: relative;
-    margin: 12%;
+
     flex-direction: column;
     align-items: center;
     width: 100%;
