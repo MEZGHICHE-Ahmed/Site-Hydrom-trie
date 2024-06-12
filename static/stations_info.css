@@ -60,7 +60,7 @@ header ol li:first-child {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin-top: 5%; /* Adjusted to ensure content is below the header */
+    margin-top: 1%; /* Adjusted to ensure content is below the header */
 
     border-radius:8px ;
     
