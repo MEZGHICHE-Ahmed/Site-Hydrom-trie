@@ -247,7 +247,7 @@ def stations(code_site):
             code_station = request.form.get('station_tr')
             obscheck = Observations.get_obs_tr(code_station)
             if not obscheck:
-                return redirect(url_for('error404.html'))
+                return redirect(url_for('error.html'))
             return redirect(url_for('stations_obs_tr', code_station=code_station))
         
         elif "station_date" in request.form:
@@ -272,7 +272,7 @@ def stations_obs_tr(code_station):
 @app.route('/stations_obs_date/<code_station>', methods=['GET', 'POST'])
 def stations_obs_date(code_station):
     date = request.form.get('date')
-    observations = None
+    observations = Observations.get_obs_date(code_station, date)
     
     if request.method == "POST":
         if "get_date" in request.form:
