@@ -1,39 +1,26 @@
-/* Reset CSS */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-p {
-    font-family: "Poppins", sans-serif;
-}
-
 /* Body Styling */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 200vh;
-    margin: 0;
-    background-image: url("/static/images/river_stationsinfos.jpg");
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    overflow: hidden;
+    background-image: url("/static/images/river_stationsinfos.jpg");  
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    overflow-y: auto;
-    padding-top: 100px; /* Ajout de marge en haut pour compenser la position fixe du header */
 }
 
 /* Header Styling */
 header {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Ajout d'une couleur de fond pour le contraste */
-    position: fixed; /* Ajout d'une position fixe pour que le header reste en haut */
-    top: 0; /* Pour aligner le header en haut */
-    z-index: 999; /* Assure que le header est au-dessus du contenu */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
 }
 
 header>a {
@@ -41,21 +28,20 @@ header>a {
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: white; /* Changement de la couleur du texte pour améliorer la lisibilité */
 }
-
 header ol {
-    width: calc(100% - 200px); /* Largeur totale moins la largeur des éléments de la liste */
+    list-style-type: none;
     display: flex;
-    justify-content: flex-end; /* Alignement des éléments à droite */
+    width: calc(100% - 200px);
+    justify-content: flex-end;
 }
 
 header ol li {
     font-weight: 600;
     padding: 0 20px;
     opacity: 0.6;
-    list-style: none; /* Pour supprimer les puces de la liste */
 }
+
 
 header ol li:first-child {
     opacity: 1;
@@ -63,43 +49,39 @@ header ol li:first-child {
 
 /* Container Styling */
 .container {
-    display: block;
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin-top: 200px; /* Add margin-top to push content below the header */
+    margin-top: 100px; /* Adjusted to ensure content is below the header */
 }
-  
+
 /* Box Styling */
 .box {
     margin-bottom: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 20px;
 }
-  
-/* Block Styling */
+
 .block {
-    margin-bottom: 20px;
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #ffffffd8;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    width: calc(33% - 40px);
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .block p {
     margin: 0.5em 0;
 }
 
-/* Background Image Overlay */
-.bg-img::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-}
 
 /* Styling for Links */
 a {
@@ -113,7 +95,7 @@ a {
         transform: scale(1);
     }
     50% {
-        transform: scale(2);
+        transform: scale(1.5);
     }
     100% {
         transform: scale(1);
@@ -141,8 +123,6 @@ a {
     }
 }
 
-/* Font Styling for Headings */
-h1, h2, h3 {
+h1 {
     font-family: "Poppins", sans-serif;
-    color: #333;
 }
