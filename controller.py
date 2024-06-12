@@ -3,13 +3,13 @@ from model import Site,Station,Observations
 
 app = Flask(__name__)
 
-# salut
+
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-#d
+
 
 @app.route('/corse', methods=['GET', 'POST'])
 def corse():
@@ -273,13 +273,14 @@ def stations_obs_tr(code_station):
 def stations_obs_date(code_station):
     date = request.form.get('date')
     observations = None
-    if request.method == 'POST':
-        if 'get_date' in request.form:
-            observations = Observations.get_obs_date(code_station, date)
-        elif 'evolution' in request.form:
-            Observations.get_evol_obs(code_station)
     
-    return render_template('station_obs_date.html', code_station=code_station, date=date, observations=observations)
+    if request.method == "POST":
+        if "get_date" in request.form:
+            date = request.form.get('date')
+            return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
+        if "evolution" in request.form:
+            Observations.get_evol_obs(code_station)
+    return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
 
 if __name__ == '__main__':
     app.run(debug=True)

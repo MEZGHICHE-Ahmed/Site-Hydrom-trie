@@ -1,7 +1,128 @@
-/* Reset CSS */
-* {
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*, *::after, *::before {
     margin: 0;
     padding: 0;
-    background-color: black;
     box-sizing: border-box;
-  }
+}
+
+/* Body Styling */
+body {
+    font-family: 'Nunito', sans-serif;
+    color: white;
+    overflow: hidden;
+    background-image: url("/static/images/river_stationsinfos.jpg");  
+    background-size: cover;
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+header>a {
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+header ol {
+    list-style-type: none;
+    display: flex;
+    width: calc(100% - 200px);
+    justify-content: flex-end;
+}
+
+header ol li {
+    font-weight: 600;
+    padding: 0 20px;
+    opacity: 0.6;
+}
+
+
+header ol li:first-child {
+    opacity: 1;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 100px; /* Adjusted to ensure content is below the header */
+}
+
+/* Box Styling */
+.box {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.block {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #ffffffd8;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    width: calc(33% - 40px);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.block p {
+    margin: 0.5em 0;
+}
+
+
+/* Styling for Links */
+a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Keyframes for Animation */
+@keyframes scaling {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes movement {
+    0% {
+        width: 20rem;
+        top: 10%;
+        right: 30%;
+        transform: rotate(0deg);
+    }
+    50% {
+        width: 50rem;
+        top: 20%;
+        right: -10%;
+        transform: rotate(180deg);
+    }
+    100% {
+        width: 20rem;
+        top: 10%;
+        right: 30%;
+        transform: rotate(360deg);
+    }
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
+}

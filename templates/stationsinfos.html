@@ -1,39 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% block head %}
-  <head>
+{% block head %}
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='tout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stations_info.css') }}">
     <title>sites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  {% endblock %}
-  </head>
-  {% block body %}
-  <body>
-      {% for station in stationsinfo %}
-      <p><strong>Code Station:</strong> {{ station.code_station }}</p>
-        <p><strong>Code Site:</strong> {{ station.code_site }}</p>
-        <p><strong>Libelle Site:</strong> {{ station.libelle_site }}</p>
-        <p><strong>Libelle Station:</strong> {{ station.libelle_station }}</p>
-        <p><strong>Type Station:</strong> {{ station.type_station }}</p>
-        <p><strong>Coordonnee X Station:</strong> {{ station.coordonnee_x_station }}</p>
-        <p><strong>Coordonnee Y Station:</strong> {{ station.coordonnee_y_station }}</p>
-        <p><strong>Longitude Station:</strong> {{ station.longitude_station }}</p>
-        <p><strong>Latitude Station:</strong> {{ station.latitude_station }}</p>
-        <p><strong>Altitude Ref Alti Station:</strong> {{ station.altitude_ref_alti_station }}</p>
-        <p><strong>Code Commune Station:</strong> {{ station.code_commune_station }}</p>
-        <p><strong>Libelle Commune:</strong> {{ station.libelle_commune }}</p>
-        <p><strong>Code Departement:</strong> {{ station.code_departement }}</p>
-        <p><strong>Code Region:</strong> {{ station.code_region }}</p>
-        <p><strong>Libelle Region:</strong> {{ station.libelle_region }}</p>
-        <p><strong>En Service:</strong> {{ station.en_service }}</p>
-        <p><strong>Date Fermeture Station:</strong> {{ station.date_fermeture_station }}</p>
-        <p><strong>Date Ouverture Station:</strong> {{ station.date_ouverture_station }}</p>
-      {% endfor %}
-      <p><strong>Moyenne du débit d'eau:</strong>5,412 cm/mois</p>
-  </body>
-  {% endblock %}
+{% endblock %}
+</head>
+{% block body %}
+<body>
+    <header>
+        <a href="#">Hydrovision</a>
+        <ol>
+            <li><a href="{{ url_for('region') }}">Regions</a></li>
+            <li><a href="#">Top regions</a></li>
+        </ol>
+    </header>
+    <div class="container">
+        {% for station in stationsinfo %}
+        <div class="box station-info">
+            <section class="block Details">
+                <h2>Station Details</h2>
+                <p><strong>Code Station:</strong> {{ station.code_station }}</p>
+                <p><strong>Code Site:</strong> {{ station.code_site }}</p>
+                <p><strong>Libellé Site:</strong> {{ station.libelle_site }}</p>
+                <p><strong>Libellé Station:</strong> {{ station.libelle_station }}</p>
+                <p><strong>Type Station:</strong> {{ station.type_station }}</p>
+            </section>
+            <section class="block Coordinates">
+                <h3>Coordinates</h3>
+                <p><strong>Coordonnée X Station:</strong> {{ station.coordonnee_x_station }}</p>
+                <p><strong>Coordonnée Y Station:</strong> {{ station.coordonnee_y_station }}</p>
+                <p><strong>Longitude Station:</strong> {{ station.longitude_station }}</p>
+                <p><strong>Latitude Station:</strong> {{ station.latitude_station }}</p>
+                <p><strong>Altitude Référence Alti Station:</strong> {{ station.altitude_ref_alti_station }}</p>
+            </section>
+            <section class="block Location">
+                <h3>Location Details</h3>
+                <p><strong>Code Commune Station:</strong> {{ station.code_commune_station }}</p>
+                <p><strong>Libellé Commune:</strong> {{ station.libelle_commune }}</p>
+                <p><strong>Code Département:</strong> {{ station.code_departement }}</p>
+                <p><strong>Code Région:</strong> {{ station.code_region }}</p>
+                <p><strong>Libellé Région:</strong> {{ station.libelle_region }}</p>
+            </section>
+            <section class="block Operational">
+                <h3>Operational Status</h3>
+                <p><strong>En Service:</strong> {{ station.en_service }}</p>
+                <p><strong>Date Fermeture Station:</strong> {{ station.date_fermeture_station }}</p>
+                <p><strong>Date Ouverture Station:</strong> {{ station.date_ouverture_station }}</p>
+            </section>
+        </div>
+        {% endfor %}
+        <section class="block average-debit">
+            <h2>Moyenne du Débit d'Eau</h2>
+            <p><strong>Débit Moyen:</strong> 5,412 cm/mois</p>
+        </section>
+    </div>
+</body>
+{% endblock %}
 </html>
