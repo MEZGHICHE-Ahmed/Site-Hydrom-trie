@@ -53,7 +53,7 @@ class Observations:
     
     def get_obs_date(code_station, date):
         if date is not None:
-            url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&date_debut_obs={date}&date_fin_obs={date}'
+            url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&date_debut_obs={date}'
             # Télécharger le contenu du fichier JSON
             response = requests.get(url)
             
