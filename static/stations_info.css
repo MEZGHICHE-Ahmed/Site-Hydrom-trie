@@ -11,9 +11,10 @@ body {
     font-family: 'Nunito', sans-serif;
     color: white;
     overflow: hidden;
-    background-image: url("/static/images/river_stationsinfos.jpg");  
+    background-image: url("/static/images/pexels-francesco-ungaro-1525041.jpg");  
     background-size: cover;
 }
+
 
 /* Header Styling */
 header {
@@ -24,12 +25,16 @@ header {
 }
 
 header>a {
+    position: relative;
+    left: 12%;
     font-weight: 700;
     font-size: 24px;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
 header ol {
+    position: relative;
+    right: 10%;
     list-style-type: none;
     display: flex;
     width: calc(100% - 200px);
@@ -49,12 +54,16 @@ header ol li:first-child {
 
 /* Container Styling */
 .container {
-    display: flex;
+    display: relative;
+    margin: 12%;
     flex-direction: column;
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    margin-top: 100px; /* Adjusted to ensure content is below the header */
+    margin-top: 5%; /* Adjusted to ensure content is below the header */
+    
+    
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 /* Box Styling */
@@ -63,6 +72,8 @@ header ol li:first-child {
     border-radius: 8px;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
 }
 
 .block {
@@ -72,7 +83,7 @@ header ol li:first-child {
     padding: 1em;
     border-radius: 8px;
     background-color: #ffffffd8;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: calc(33% - 40px);
     box-sizing: border-box;
     text-align: left;
@@ -126,3 +137,4 @@ a {
 h1 {
     font-family: "Poppins", sans-serif;
 }
+

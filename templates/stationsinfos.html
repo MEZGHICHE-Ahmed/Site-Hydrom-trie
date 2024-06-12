@@ -14,6 +14,7 @@
 </head>
 {% block body %}
 <body>
+  <section id="navb">
     <header>
         <a href="#">Hydrovision</a>
         <ol>
@@ -21,6 +22,7 @@
             <li><a href="#">Top regions</a></li>
         </ol>
     </header>
+  </section>
     <div class="container">
         {% for station in stationsinfo %}
         <div class="box station-info">
@@ -54,12 +56,12 @@
                 <p><strong>Date Fermeture Station:</strong> {{ station.date_fermeture_station }}</p>
                 <p><strong>Date Ouverture Station:</strong> {{ station.date_ouverture_station }}</p>
             </section>
+            <section class="block average-debit">
+              <h2>Moyenne du Débit d'Eau</h2>
+              <p><strong>Débit Moyen:</strong> 5,412 cm/mois</p>
+          </section>
         </div>
         {% endfor %}
-        <section class="block average-debit">
-            <h2>Moyenne du Débit d'Eau</h2>
-            <p><strong>Débit Moyen:</strong> 5,412 cm/mois</p>
-        </section>
     </div>
 </body>
 {% endblock %}
