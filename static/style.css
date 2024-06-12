@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General styles */
+body {
+  font-family: 'Nunito', sans-serif;
+  color: white;
+  overflow: hidden;
+  background-color: black;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+/* index.html styles */
+.bg-img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(images/rivier.jpg) no-repeat fixed center;
+  background-size: cover;
+  animation: scaling 60s linear infinite;
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bg-img::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+ol {
+  list-style-type: none;
+  display: flex;
+}
+
+.container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100vh;
+}
+
+.mars {
+  position: absolute;
+  animation: movement 60s linear infinite;
+}
+
+@keyframes movement {
+  0% {
+    width: 20rem;
+    top: 10%;
+    right: 30%;
+    transform: rotate(0deg);
+  }
+  50% {
+    width: 50rem;
+    top: 20%;
+    right: -10%;
+    transform: rotate(180deg);
+  }
+  100% {
+    width: 20rem;
+    top: 10%;
+    right: 30%;
+    transform: rotate(360deg);
+  }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+}
+
+header>a {
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+header ol li {
+  font-weight: 600;
+  padding: 0 20px;
+  opacity: 0.6;
+}
+
+header ol li:first-child {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 54px;
+}
+
+main {
+  padding-top: 5%;
+}
+
+main>p {
+  max-width: 50%;
+  opacity: 0.75;
+  font-size: 15px;
+}
+
+.d-flex {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.d-flex a {
+  margin-right: 50px;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.d-flex a span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+.d-flex a:first-child span {
+  background: maroon;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.d-flex a:last-child span {
+  height: 20px;
+  width: 20px;
+  font-size: 7px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+ol.info {
+  padding-top: 5%;
+}
+
+ol.info li {
+  flex: 0 0 30%;
+}
+
+ol.info li h5 {
+  margin-bottom: 10px;
+}
+
+ol.info li h4 {
+  margin-bottom: 10px;
+}
+
+ol.info li p {
+  padding-right: 20%;
+  opacity: 0.75;
+}
+
+svg path:hover {
+  fill: blue;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.small-div {
+  width: 35%;
+  height: 35%;
+  position: absolute;
+  top: 20%;
+  left: 65%;
+}
+
+/* region.html styles */
+body.region {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+}
+
+
+
+form input[type="text"],
+form input[type="submit"],
+form button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+form input[type="submit"],
+form button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form input[type="submit"]:hover,
+form button:hover {
+  background-color: #0056b3;
+}
+
+h1.region {
+  color: #333;
+  text-align: center;
+}
+
+/* site.html styles */
+body.site {
+  font-family: 'Arial', sans-serif;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/images/rivier_site.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-y: auto;
+}
+
+h1.site {
+  font-family: "Poppins", sans-serif;
+}
+
+.container.site {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.box.site {
+  margin-bottom: 20px;
+  border-radius: 8px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form.site {
+  padding: 2em;
+  border-radius: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.block.site {
+  display: inline-block;
+  vertical-align: top;
+  margin: 20px;
+  padding: 1em;
+  border-radius: 8px;
+  background-color: #ffffffd8;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  width: calc(33% - 40px);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.block.site p {
+  margin: 0.5em 0;
+}
+
+#bouton.site {
+  display: block;
+  margin: 1em auto 0;
+  padding: 0.5em 1em;
+  background-color: #005806;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+#bouton.site:hover {
+  background-color: #0056b3;
+}
+
+.libelle.site {
+  font-weight: bolder;
+}
+
+.b1.site {
+  width: 100%;
+  height: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  background-color: #00000088;
+  text-align: center;
+}
+
+/* station.html styles */
+body.station {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/images/rivier_station.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+button.station {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button.station:hover {
+  background-color: #0056b3;
+}
+
+form.station {
+  display: inline-block;
+}
+
+br.station {
+  margin-bottom: 20px;
+}
+
+section.station {
+  background: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+/* commune.html styles */
+body.commune {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/images/rivier_commune.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+form.commune {
+  display: inline-block;
+}
+
+br.commune {
+  margin-bottom: 20px;
+}
+
+section.commune {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+button.commune {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button.commune:hover {
+  background-color: #0056b3;
+}
+
+/* departement.html styles */
+body.departement {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-image: url("/static/images/rivier_departement.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+form.departement {
+  display: inline-block;
+}
+
+br.departement {
+  margin-bottom: 20px;
+}
+
+section.departement {
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+button.departement {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+button.departement:hover {
+  background-color: #0056b3;
+}

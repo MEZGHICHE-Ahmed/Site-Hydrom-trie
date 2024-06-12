@@ -271,15 +271,15 @@ def stations_obs_tr(code_station):
 
 @app.route('/stations_obs_date/<code_station>', methods=['GET', 'POST'])
 def stations_obs_date(code_station):
-    date = request.args.get('date')
-    print(date)
-    observations = Observations.get_obs_date(code_station, date)
+    date = request.form.get('date')
+    observations = None
+    if request.method == 'POST':
+        if 'get_date' in request.form:
+            observations = Observations.get_obs_date(code_station, date)
+        elif 'evolution' in request.form:
+            Observations.get_evol_obs(code_station)
     
-    if request.method == "POST":
-        if "get_date" in request.form:
-            date = request.form.get('date')
-            return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
-    return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
+    return render_template('station_obs_date.html', code_station=code_station, date=date, observations=observations)
 
 if __name__ == '__main__':
     app.run(debug=True)
