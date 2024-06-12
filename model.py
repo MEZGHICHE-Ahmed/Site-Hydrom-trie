@@ -137,7 +137,8 @@ class Site:
                 code_cours_eau=None, 
                 grandeur_hydro=None, 
                 date_maj_sites=None, 
-                libelle_departement=None, 
+                libelle_departement=None,
+                code_commune=None, 
                 number=None):
         self.code_site = code_site
         self.libelle_site = libelle_site
@@ -156,6 +157,7 @@ class Site:
         self.grandeur_hydro = grandeur_hydro
         self.date_maj_sites = date_maj_sites
         self.libelle_departement = libelle_departement
+        self.code_commune = code_commune
         self.number = number
 
     def tout_station_dep(code_departemental):
@@ -227,13 +229,13 @@ class Site:
     
     # Affiche les commune disponibles dans le départements
     def search_commune(departement):
-        cursor.execute("SELECT DISTINCT sites.libelle_commune, COUNT(libelle_station) FROM sites, stations where sites.code_site = stations.code_site AND sites.libelle_departement LIKE ? group by libelle_station", (departement,) )
+        cursor.execute("SELECT DISTINCT sites.libelle_commune, COUNT(libelle_station), sites.code_commune FROM sites, stations where sites.code_site = stations.code_site AND sites.libelle_departement LIKE ? group by libelle_station", (departement,) )
         result = cursor.fetchall()
         tab = []
 
         for row in result:
             if row[0] is not None:
-                tab.append(Site(libelle_commune=row[0], number=row[1], libelle_departement=departement))
+                tab.append(Site(libelle_commune=row[0], number=row[1], code_commune=row[2], libelle_departement=departement))
         return tab 
     
 

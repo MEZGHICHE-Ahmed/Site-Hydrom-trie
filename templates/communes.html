@@ -39,6 +39,7 @@
           {% for commune in communes %}
           <section class="block">
             <p class="libelle">{{ commune.libelle_commune }}</p>
+            <p>Code Commune : {{ commune.code_commune }} </p>
             <p>Nombre de station(s) : {{commune.number}}</p>
             <button id="bouton" type="submit" name="communess" value="{{ commune.libelle_commune }}">Selection</button>
           </section>
