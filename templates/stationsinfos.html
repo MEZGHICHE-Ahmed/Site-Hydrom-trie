@@ -29,34 +29,34 @@
         {% for station in stationsinfo %}
         <div class="box station-info">
             <section class="block Details">
-                <h2>Station Details</h2>
-                <p><strong>Code Station:</strong> {{ station.code_station }}</p>
-                <p><strong>Code Site:</strong> {{ station.code_site }}</p>
-                <p><strong>Libellé Site:</strong> {{ station.libelle_site }}</p>
-                <p><strong>Libellé Station:</strong> {{ station.libelle_station }}</p>
-                <p><strong>Type Station:</strong> {{ station.type_station }}</p>
+                <h2>Details de la station</h2>
+                <p><strong>Code de la station:</strong> {{ station.code_station }}</p>
+                <p><strong>Code du site:</strong> {{ station.code_site }}</p>
+                <p><strong>Libellé du site:</strong> {{ station.libelle_site }}</p>
+                <p><strong>Libellé de la station:</strong> {{ station.libelle_station }}</p>
+                <p><strong>Type de station:</strong> {{ station.type_station }}</p>
             </section>
             <section class="block Coordinates">
-                <h3>Coordinates</h3>
-                <p><strong>Coordonnée X Station:</strong> {{ station.coordonnee_x_station }}</p>
-                <p><strong>Coordonnée Y Station:</strong> {{ station.coordonnee_y_station }}</p>
-                <p><strong>Longitude Station:</strong> {{ station.longitude_station }}</p>
-                <p><strong>Latitude Station:</strong> {{ station.latitude_station }}</p>
+                <h3>Coordonnées</h3>
+                <p><strong>Coordonnée X de la station:</strong> {{ station.coordonnee_x_station }}</p>
+                <p><strong>Coordonnée Y de la station:</strong> {{ station.coordonnee_y_station }}</p>
+                <p><strong>Longitude de la station:</strong> {{ station.longitude_station }}</p>
+                <p><strong>Latitude de la Station:</strong> {{ station.latitude_station }}</p>
                 <p><strong>Altitude Référence Alti Station:</strong> {{ station.altitude_ref_alti_station }}</p>
             </section>
             <section class="block Location">
-                <h3>Location Details</h3>
+                <h3>Localisation</h3>
                 <p><strong>Code Commune Station:</strong> {{ station.code_commune_station }}</p>
-                <p><strong>Libellé Commune:</strong> {{ station.libelle_commune }}</p>
-                <p><strong>Code Département:</strong> {{ station.code_departement }}</p>
-                <p><strong>Code Région:</strong> {{ station.code_region }}</p>
-                <p><strong>Libellé Région:</strong> {{ station.libelle_region }}</p>
+                <p><strong>Libellé de la commune:</strong> {{ station.libelle_commune }}</p>
+                <p><strong>Code du département:</strong> {{ station.code_departement }}</p>
+                <p><strong>Code de la région:</strong> {{ station.code_region }}</p>
+                <p><strong>Libellé de la région:</strong> {{ station.libelle_region }}</p>
             </section>
             <section class="block Operational">
-                <h3>Operational Status</h3>
-                <p><strong>En Service:</strong> {{ station.en_service }}</p>
-                <p><strong>Date Fermeture Station:</strong> {{ station.date_fermeture_station }}</p>
-                <p><strong>Date Ouverture Station:</strong> {{ station.date_ouverture_station }}</p>
+                <h3>Statut opérationnel</h3>
+                <p><strong>{{ station.en_service }}</strong></p>
+                <p><strong>Date de la fermeture de la station:</strong> {{ station.date_fermeture_station }}</p>
+                <p><strong>Date d'ouverture de la station:</strong> {{ station.date_ouverture_station }}</p>
             </section>
             <section class="block average-debit">
               <h2>Moyenne du Débit d'Eau</h2>
