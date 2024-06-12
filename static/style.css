@@ -54,10 +54,6 @@ a {
   background: rgba(0, 0, 0, 0.3);
 }
 
-ol {
-  list-style-type: none;
-  display: flex;
-}
 
 .container {
   position: relative;
@@ -65,6 +61,12 @@ ol {
   margin: 0 auto;
   height: 100vh;
 }
+
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.733);
+}
+
 
 .mars {
   position: absolute;
@@ -92,29 +94,8 @@ ol {
   }
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 50px 0;
-}
 
-header>a {
-  font-weight: 700;
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-}
 
-header ol li {
-  font-weight: 600;
-  padding: 0 20px;
-  opacity: 0.6;
-}
-
-header ol li:first-child {
-  opacity: 1;
-}
 
 h1 {
   font-size: 54px;
@@ -128,64 +109,6 @@ main>p {
   max-width: 50%;
   opacity: 0.75;
   font-size: 15px;
-}
-
-.d-flex {
-  display: flex;
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.d-flex a {
-  margin-right: 50px;
-  display: flex;
-  font-size: 14px;
-  align-items: center;
-  text-transform: uppercase;
-}
-
-.d-flex a span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 12px;
-  margin-right: 5px;
-}
-
-.d-flex a:first-child span {
-  background: maroon;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-}
-
-.d-flex a:last-child span {
-  height: 20px;
-  width: 20px;
-  font-size: 7px;
-  border: 2px solid white;
-  border-radius: 50%;
-}
-
-ol.info {
-  padding-top: 5%;
-}
-
-ol.info li {
-  flex: 0 0 30%;
-}
-
-ol.info li h5 {
-  margin-bottom: 10px;
-}
-
-ol.info li h4 {
-  margin-bottom: 10px;
-}
-
-ol.info li p {
-  padding-right: 20%;
-  opacity: 0.75;
 }
 
 svg path:hover {

@@ -21,17 +21,17 @@ header>a {
 header ol li {
     font-weight: 600;
     padding: 0 20px;
-    opacity: 0.6;
-}
-
-header ol li:first-child {
-    opacity: 1;
 }
 
 
 a {
     text-decoration: none;
-    color: white;
+    color: rgba(255, 255, 255, 0.733);
+}
+
+a:hover {
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
 }
 
 ol {
