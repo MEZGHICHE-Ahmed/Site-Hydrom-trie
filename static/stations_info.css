@@ -61,7 +61,8 @@ header ol li:first-child {
     width: 100%;
     max-width: 1200px;
     margin-top: 5%; /* Adjusted to ensure content is below the header */
-    
+
+    border-radius:8px ;
     
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -72,10 +73,22 @@ header ol li:first-child {
     border-radius: 8px;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    -webkit-text-stroke-width: 0.5px;
-    -webkit-text-stroke-color: black;
-}
+    color: black;
+    align-items: center;
+    padding: 20px;
+    margin: 0;
 
+}
+h3{
+    color: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+h2{
+    color: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
 .block {
     display: inline-block;
     vertical-align: top;
