@@ -9,6 +9,8 @@ p {
     font-family: 'Nunito', sans-serif ;
 }
 
+
+
 /* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
@@ -98,4 +100,8 @@ form {
     text-shadow: 1px 1px 1px #333;
     background-color: #00000088;
     text-align: center;
+}
+
+.bold {
+  font-weight: bolder;
 }

@@ -1,15 +1,16 @@
-/* Reset CSS */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*, *::after, *::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
+
 
 /* Body styles */
 body {
-  font-family: 'Arial', sans-serif;
-  height: 100vh;
-  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
   background-image: url("/static/images/rivier_station.jpg");
   background-size: cover;
   background-position: center;
@@ -43,7 +44,7 @@ br {
 }
 
 section {
-  background: white;
+  background-color: white;
   padding: 2em;
   border-radius: 8px;
   width: 100%;

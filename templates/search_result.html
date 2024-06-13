@@ -32,11 +32,11 @@
         <button type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
     </form>
     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-        <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel *temp*</button>
+        <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
     </form>
     
     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-    <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date) *temp*</button>
+    <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date)</button>
     </form>
 
     
