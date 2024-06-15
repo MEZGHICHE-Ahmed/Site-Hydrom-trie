@@ -1,56 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='progressive_search.css') }}">
-  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
-  <title>communes</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-</head>
-<body>
-  <div class="navbar">
-    <header>
-        <a href="/">Hydrovision</a>
-        <ol>
-            <li><a href="{{ url_for('region') }}">Rechercher</a></li>
-            <li><a href="#">Statistiques de la Semaine</a></li>
-            <li><a href="#">À propos</a></li>
-        </ol>
-    </header>
-  </div>
+  {% block head %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='progressive_search.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <title>communes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {% endblock %}
+  </head>
+  {% block body %}
+  <body>
+    <div class="navbar">
+      <header>
+          <a href="/">Hydrovision</a>
+          <ol>
+              <li><a href="{{ url_for('region') }}">Rechercher</a></li>
+              <li><a href="#">Statisques de la Semaine</a></li>
+              <li><a href="#">A propos</a></li>
+          </ol>
+      </header>
 
-  <div class="container">
-    <div class="box b1">
-      <h1> RESULTATS POUR {{ communes }}</h1>
-    </div>
-
-    <div class="box">
-      {% if result == [] %}
-      <p>Aucune Station Trouvée</p>
-      {% else %}
-      {% for index in result %}
-      <h1>{{ index[0].libelle_commune }}</h1>
-      {% for station in index %}
-      <div class="separation">
-        <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-          <button type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
-        </form>
-        <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-          <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
-        </form>
-        <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-          <button type="submit" name="station_date" value="{{ station.code_station }}">Observations du (date)</button>
-        </form>
+    <div class="container">
+      <div class="box b1">
+        <h1> RESULTATS POUR {{ commune_name }}</h1>
       </div>
-      <br>
-      {% endfor %}
-      {% endfor %}
-      {% endif %}
-    </div>
-  </div>
 
-</body>
+      <div class="box">
+        {% if result == [] %}
+        <p>Aucune Station Trouvé</p>
+        {% else %}
+        {% for index in result %}
+        <h1> {{ index[0].libelle_commune }} </h1>
+        {% for station in index %}
+        <form method="POST" action="{{ url_for('search_result', commune_name=commune_name) }}">
+            <button type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
+        </form>
+        <form method="POST" action="{{ url_for('search_result', commune_name=commune_name) }}">
+            <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
+        </form>
+        
+        <form method="POST" action="{{ url_for('search_result', commune_name=commune_name) }}">
+        <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date)</button>
+        </form>
+        
+        <br>
+        {% endfor %}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </body>
+  {% endblock %}
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
