@@ -120,20 +120,6 @@ form {
   margin-bottom: 10px; /* Espacement entre chaque formulaire */
 }
 
-button[type="submit"] {
-  background-color: #007bff; /* Couleur de fond par défaut du bouton */
-  color: #fff; /* Couleur du texte */
-  border: none; /* Pas de bordure */
-  padding: 10px 20px; /* Espacement intérieur du bouton */
-  cursor: pointer; /* Curseur de type pointeur au survol */
-  border-radius: 5px; /* Coins arrondis */
-  transition: background-color 0.3s ease; /* Transition pour l'animation */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour séparer visuellement */
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3; /* Couleur de fond au survol */
-}
 
 /* Style pour la classe de séparation */
 div.separation {
@@ -167,10 +153,10 @@ div.separation {
 }
 
 /* Block Styling */
-.blockr {
+.test {
   display: inline-block;
   vertical-align: top;
-  margin: 20px;
+  margin: 15px;
   padding: 1em;
   border-radius: 8px;
   background-color: #ffffffd8;
@@ -180,11 +166,11 @@ div.separation {
   text-align: left; /* Align text to the left for better readability */
 }
 
-.blockr p {
+.test p {
   margin: 0.5em 0;
 }
 
-.btn {
+button {
   display: block;
   margin: 1em auto 0; /* Center the button horizontally and give some space at the top */
   padding: 0.5em 1em;
@@ -197,7 +183,7 @@ div.separation {
   transition: background-color 0.3s;
 }
 
-.textbutton {
+#textbutton {
   color: rgb(0, 0, 0);
   background-color: #ffffff00;
   font-weight: bolder;
@@ -206,7 +192,7 @@ div.separation {
   padding-bottom: 10%;
 }
 
-.textbutton:hover {
+#textbutton:hover {
   color: #005806;
   transition: 0.5s;
 }

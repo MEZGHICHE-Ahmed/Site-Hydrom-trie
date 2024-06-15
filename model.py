@@ -349,15 +349,20 @@ class Station:
             
             station = Station(code_station=code_station, libelle_station=libelle_station, type_station=type_station, libelle_commune=libelle_commune)
             
-            # Limiter à 4 stations par commune
+            # Ajouter la station à la commune correspondante dans le dictionnaire
             if libelle_commune in commune_stations:
-                    commune_stations[libelle_commune].append(station)
+                commune_stations[libelle_commune].append(station)
             else:
                 commune_stations[libelle_commune] = [station]
         
         # Convertir le dictionnaire en un tableau de tableau de stations par commune
         tab = [commune_stations[commune] for commune in commune_stations]
-        return tab
+        
+        # Trier les sous-listes par ordre décroissant de leur longueur
+        tab_sorted = sorted(tab, key=len, reverse=True)
+        
+        return tab_sorted
+
 
 
     def station_actif(code_station):
