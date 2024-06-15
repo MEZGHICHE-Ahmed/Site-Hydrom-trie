@@ -341,7 +341,6 @@ class Station:
             
             # Limiter à 4 stations par commune
             if libelle_commune in commune_stations:
-                if len(commune_stations[libelle_commune]) < 4:
                     commune_stations[libelle_commune].append(station)
             else:
                 commune_stations[libelle_commune] = [station]
