@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='tout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stationobsTR.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>Observations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,6 +24,7 @@
           </ol>
       </header>
     </div>
+    <div class="box">
 
     {% if not observations %}
       <p>La Station n'a pas enregistré d'observations à ce jour</p>
@@ -35,7 +36,8 @@
       <p><strong>Date Observation:</strong> {{ obs.date_obs }}</p>
       <p><strong>Resultat Observation:</strong> {{ obs.resultat_obs }}</p>
       <p><strong>Continuite Observation Hydro:</strong> {{ obs.continuite_obs_hydro }}</p>
-      <hr>
+    </div>
+
       {% endfor %}
     {% endif %}
   </body>

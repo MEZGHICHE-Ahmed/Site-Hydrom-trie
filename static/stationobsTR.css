@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+* {
+    font-family: 'Nunito', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: url(images/pexels-eberhardgross-443446.jpg) no-repeat fixed center;
+    background-size: cover;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    overflow: hidden;
+    background-color: black;
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    color:white;
+}
+
+a:hover {
+    color: white;
+    transition: 0.5s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 0;
+}
+
+header>a {
+    font-weight: 700;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+header ol {
+    list-style-type: none;
+    display: flex;
+}
+
+header ol li {
+    font-weight: 600;
+    padding: 0 20px;
+}
+
+.navbar {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    height: auto;
+}
+
+
+
+.bg-img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.observation {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+}
