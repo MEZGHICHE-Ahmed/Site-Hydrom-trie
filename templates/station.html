@@ -39,13 +39,13 @@
                 <div class="slide slide_{{ loop.index }}">
                   <div class="test">
                     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-                      <button type="submit" name="stationss" value="{{ s.code_station }}">{{ s.libelle_station }}, {{ s.code_station }}</button>
+                      <button id="textbutton" type="submit" name="stationss" value="{{ s.code_station }}">{{ s.libelle_station }}, {{ s.code_station }}</button>
                     </form>
                     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
                       <button type="submit" name="station_tr" value="{{ s.code_station }}">Observations en temps réel</button>
                     </form>
                     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-                      <button type="submit" name="station_date" value="{{ s.code_station }}">Observations du (date)</button>
+                      <button id="padding" type="submit" name="station_date" value="{{ s.code_station }}">Observations Datée</button>
                     </form>
                   </div>
                 </div>
@@ -67,7 +67,6 @@
         </div>
       </div>
       
-
     
   </body>
   {% endblock %}
