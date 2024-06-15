@@ -128,7 +128,7 @@ br {
   text-decoration: none;
 }
 #slides {
-  border: 3px solid #ccc;
+  padding-top: auto;
   position: relative;
   z-index: 1;
 }

@@ -6,17 +6,15 @@
 }
 
 p {
-    font-family: 'Nunito', sans-serif ;
+  font-family: 'Nunito', sans-serif;
 }
-
-
 
 /* Body Styling */
 body {
   font-family: 'Arial', sans-serif;
-  background-color: white;
   height: 100vh;
   margin: 0;
+  background-image: url(/static/images/rivier_commune.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -25,8 +23,10 @@ body {
 }
 
 h1 {
-    font-family: 'Nunito', sans-serif ;
+  font-family: 'Nunito', sans-serif;
+  color: white;
 }
+
 /* Container Styling */
 .container {
   display: flex;
@@ -40,10 +40,19 @@ h1 {
 
 /* Box Styling */
 .box {
-  margin-bottom: 20px; /* Add some space between the two boxes */
+  position: relative; /* Position relative pour pouvoir utiliser z-index */
+  z-index: 2; /* Placer au-dessus de la barre de navigation */
+  margin-bottom: 20px; /* Ajouter de l'espace entre les deux boîtes */
   border-radius: 8px;
   width: 100%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  padding: 20px; /* Ajouter un espace intérieur pour le contenu */
+  margin-top: 5%; /* Espacement par rapport au haut */
+}
+
+/* Ajouter une bordure entre les boîtes */
+.box + .box {
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Bordure supérieure légère */
 }
 
 /* Form Styling */
@@ -94,14 +103,48 @@ form {
 }
 
 .b1 {
-    width: 100%;
-    padding: 50px;
-    color: #FFF;
-    text-shadow: 1px 1px 1px #333;
-    background-color: #00000088;
-    text-align: center;
+  width: 100%;
+  padding: 50px;
+  color: #fff;
+  text-shadow: 1px 1px 1px #333;
+  background-color: #00000088;
+  text-align: center;
 }
 
 .bold {
   font-weight: bolder;
+}
+
+/* Styles pour les formulaires et les boutons */
+form {
+  margin-bottom: 10px; /* Espacement entre chaque formulaire */
+}
+
+button[type="submit"] {
+  background-color: #007bff; /* Couleur de fond par défaut du bouton */
+  color: #fff; /* Couleur du texte */
+  border: none; /* Pas de bordure */
+  padding: 10px 20px; /* Espacement intérieur du bouton */
+  cursor: pointer; /* Curseur de type pointeur au survol */
+  border-radius: 5px; /* Coins arrondis */
+  transition: background-color 0.3s ease; /* Transition pour l'animation */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre pour séparer visuellement */
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3; /* Couleur de fond au survol */
+}
+
+/* Style pour la classe de séparation */
+div.separation {
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-top: 10px; /* Espacement en haut de chaque div de séparation */
+  padding: 10px; /* Espacement intérieur */
+  border-radius: 8px;
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+  position: relative; /* Assurez-vous que la barre de navigation est positionnée de manière relative */
+  z-index: 1; /* Placer en-dessous des divs avec z-index supérieur */
 }
