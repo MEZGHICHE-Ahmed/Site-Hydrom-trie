@@ -337,23 +337,19 @@ class Station:
             type_station = row[2]
             libelle_commune = row[3]
             
-            station = {
-                'code_station': code_station,
-                'libelle_station': libelle_station,
-                'type_station': type_station,
-                'en_service': Station.station_actif(code_station)
-            }
+            station = Station(code_station=code_station, libelle_station=libelle_station, type_station=type_station, libelle_commune=libelle_commune)
             
+            # Limiter à 4 stations par commune
             if libelle_commune in commune_stations:
-                commune_stations[libelle_commune].append(station)
+                if len(commune_stations[libelle_commune]) < 4:
+                    commune_stations[libelle_commune].append(station)
             else:
                 commune_stations[libelle_commune] = [station]
         
         # Convertir le dictionnaire en un tableau de tableau de stations par commune
         tab = [commune_stations[commune] for commune in commune_stations]
-        
-        print(tab)
         return tab
+
 
     def station_actif(code_station):
         cursor.execute("SELECT en_service, date_fermeture_station FROM stations where code_station = ?", (code_station,))

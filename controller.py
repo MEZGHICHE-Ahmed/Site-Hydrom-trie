@@ -202,7 +202,7 @@ def search_result(commune_name):
     if "stationss" in request.form:
         code_station = request.form.get('stationss')
         return redirect(url_for('stationsinfo', code_station=code_station))
-    return render_template('search_result.html', result=result)
+    return render_template('search_result.html', result=result, communes=commune_name)
 
 
 
