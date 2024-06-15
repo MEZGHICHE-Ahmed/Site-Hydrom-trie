@@ -182,8 +182,8 @@ def reunion():
 
 
 
-@app.route('/region', methods=['GET', 'POST'])
-def region():
+@app.route('/search', methods=['GET', 'POST'])
+def search():
     regions = Site.get_all_region()
     if request.method == 'POST':
         if "regionss" in request.form:
@@ -194,7 +194,7 @@ def region():
             commune_name = request.form['Commune']
             
             return redirect(url_for('search_result', commune_name=commune_name))
-    return render_template('region.html', regions=regions)
+    return render_template('search.html', regions=regions)
 
 @app.route('/search_result/<commune_name>', methods=['GET', 'POST'])
 def search_result(commune_name):
@@ -295,6 +295,15 @@ def stations_obs_date(code_station):
             date = request.form.get('date')
             return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
     return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
+
+@app.route('/stats', methods=['GET', 'POST'])
+def stats():
+    None
+
+@app.route('/apropos', methods=['GET', 'POST'])
+def apropos():
+    None
+
 
 if __name__ == '__main__':
     app.run(debug=True)

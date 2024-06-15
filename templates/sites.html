@@ -22,13 +22,15 @@
 
     <div class="navbar">
       <header>
-          <a href="#">Hydrovision</a>
+          <a href="{{ url_for('index') }}">Hydrovision</a>
           <ol>
-              <li><a href="{{ url_for('region') }}">Rechercher</a></li>
-              <li><a href="#">Statisques de la Semaine</a></li>
-              <li><a href="#">A propos</a></li>
+              <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+              <li><a href="{{ url_for('stats') }}">Statisques de la Semaine</a></li>
+              <li><a href="{{ url_for('apropos') }}">A propos</a></li>
           </ol>
       </header>
+    </div>
+
 
     <div class="container">
       <div class="box b1">

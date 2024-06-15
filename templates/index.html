@@ -17,13 +17,14 @@
     <span class="bg-img"></span>
     <div class="navbar">
       <header>
-          <a href="#">Hydrovision</a>
+          <a href="{{ url_for('index') }}">Hydrovision</a>
           <ol>
-              <li><a href="{{ url_for('region') }}">Rechercher</a></li>
-              <li><a href="#">Statisques de la Semaine</a></li>
-              <li><a href="#">A propos</a></li>
+              <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+              <li><a href="{{ url_for('stats') }}">Statisques de la Semaine</a></li>
+              <li><a href="{{ url_for('apropos') }}">A propos</a></li>
           </ol>
       </header>
+      
 
         <form class="small-div" >
     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 -14 844 1198" xml:space="preserve">

@@ -13,14 +13,15 @@
 <body>
     <div class="navbar">
         <header>
-            <a href="#">Hydrovision</a>
+            <a href="{{ url_for('index') }}">Hydrovision</a>
             <ol>
-                <li><a href="{{ url_for('region') }}">Rechercher</a></li>
-                <li><a href="#">Statistiques de la Semaine</a></li>
-                <li><a href="#">A propos</a></li>
+                <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+                <li><a href="{{ url_for('stats') }}">Statisques de la Semaine</a></li>
+                <li><a href="{{ url_for('apropos') }}">A propos</a></li>
             </ol>
         </header>
-    </div>
+      </div>
+  
 
     <div class="container">
         <h1>Observations for {{ code_station }} on {{ date }}</h1>
