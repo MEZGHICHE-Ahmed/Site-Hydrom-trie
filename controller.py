@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from model import Site,Station,Observations
-
+from datetime import datetime, timedelta
 app = Flask(__name__)
 
 
@@ -279,6 +279,16 @@ def stations_obs_date(code_station):
             date = request.form.get('date')
             return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
     return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
+
+@app.route('/obs_elab/', methods=['GET', 'POST'])
+def obs_elab():
+    observations = []
+    if request.method == 'POST':
+        code_station = request.form['code_station']
+        date_fin = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
+        date_debut = (datetime.now() - timedelta(days=7)).strftime('%Y-%m-%d')
+        observations = Observations.get_obs_elab(date_debut, date_fin, code_station = code_station)
+    return render_template('obs_elab.html', observations=observations)
 
 if __name__ == '__main__':
     app.run(debug=True)

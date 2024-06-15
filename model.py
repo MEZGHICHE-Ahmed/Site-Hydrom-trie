@@ -83,7 +83,17 @@ class Observations:
                 return f"Impossible d'accéder aux observations de la station"
         else:
             return None
-    
+
+    def get_obs_elab(date_debut, date_fin, code_station):
+        url = f"https://hubeau.eaufrance.fr/api/v1/hydrometrie/obs_elab?code_entite={code_station}&date_debut_obs_elab={date_debut}&date_fin_obs_elab={date_fin}&grandeur_hydro_elab=QmJ&size=20000&pretty"
+        response = requests.get(url)
+
+        if response.status_code in (200, 206):
+            data = response.json()
+            observations = data['data']
+            return observations
+        else:
+            return None    
     
     def get_evol_obs(code_station):
     # Prendre la date d'aujourd'hui

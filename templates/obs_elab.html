@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Débits Moyens Journaliers</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Débits Moyens Journaliers</h1>
+      <form method="post" class="mt-3 mb-3">
+        <div class="form-row">
+          <div class="col">
+            <label for="code_station">Code Station</label>
+            <input type="text" class="form-control" id="code_station" name="code_station" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
+      </form>
+      <table class="table table-striped mt-3">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Débit Moyen (QmJ)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% if observations %}
+            {% for observation in observations %}
+              <tr>
+                <td>{{ observation.date_obs_elab }}</td>
+                <td>{{ observation.resultat_obs_elab }}</td>
+              </tr>
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="2">Aucune observation trouvée pour les dates sélectionnées.</td>
+            </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
