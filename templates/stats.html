@@ -3,12 +3,15 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='progressive_search.css') }}">
     <title>Débits Moyens Journaliers</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
-      <h1 class="mt-5">Débits Moyens Journaliers</h1>
+      <h1 class="mt-5">Débits Moyens Journaliers de la semaine passée</h1>
       <form method="post" class="mt-3 mb-3">
         <div class="form-row">
           <div class="col">
@@ -22,7 +25,7 @@
         <thead>
           <tr>
             <th>Date</th>
-            <th>Débit Moyen (QmJ)</th>
+            <th>Débit Moyen (Mètre cube par seconde)</th>
           </tr>
         </thead>
         <tbody>
@@ -35,11 +38,17 @@
             {% endfor %}
           {% else %}
             <tr>
-              <td colspan="2">Aucune observation trouvée pour les dates sélectionnées.</td>
+              <td colspan="2">Aucune observation trouvée.</td>
             </tr>
           {% endif %}
         </tbody>
       </table>
+      {% if plot_filename %}
+        <div class="mt-5">
+          <h3>Graphique des Débits Moyens Journaliers</h3>
+          <img src="{{ url_for('static', filename=plot_filename) }}" alt="Graphique des Débits Moyens Journaliers" class="img-fluid">
+        </div>
+      {% endif %}
     </div>
   </body>
 </html>

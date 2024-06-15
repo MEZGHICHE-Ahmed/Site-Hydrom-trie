@@ -3,7 +3,7 @@ import math
 import datetime
 import matplotlib.pyplot as plt
 import sqlite3
-
+import os
 
 DATABASE_FILE = "db_hydro.db"
 
@@ -94,7 +94,27 @@ class Observations:
             return observations
         else:
             return None    
-    
+    def graphe_elab(observations):
+        dates = [datetime.datetime.strptime(obs['date_obs_elab'], '%Y-%m-%d').strftime('%d/%m/%Y') for obs in observations]
+        values = [obs['resultat_obs_elab'] for obs in observations]
+
+        plt.figure(figsize=(10, 5))
+        plt.plot(dates, values, marker='o', linestyle='-', color='b')
+        plt.xlabel('Date')
+        plt.ylabel('Débit Moyen (Mètre Cube par Seconde)')
+        plt.title('Débits Moyens Journaliers')
+        plt.xticks(rotation=45)
+        plt.tight_layout()
+
+        # Générer un nom de fichier unique basé sur le timestamp actuel
+        filename = "graphe.png"
+        filepath = os.path.join('static', filename)
+        
+        # Sauvegarder l'image dans le répertoire static
+        plt.savefig(filepath, bbox_inches='tight')
+        plt.close()
+        return filename
+       
     def get_evol_obs(code_station):
     # Prendre la date d'aujourd'hui
         aujourdhui = datetime.date.today()
