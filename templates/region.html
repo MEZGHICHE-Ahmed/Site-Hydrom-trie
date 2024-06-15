@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='progressive_search.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='region_style.css') }}">
     <title>Regions</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,15 +32,17 @@
     
       <div class="container">
         <div class="box b1">
-          <h1> Recherchez la Commune de la station directement</h1>
+          <h1> Recherchez les Stations de votre Commune</h1>
         </div>
     
-    <Form method="POST" action="/region" >
-      <input type="text" name="name" class="question" id="nme" required autocomplete="off" />
-      <label for="nme"><span>What's your name?</span></label>
-      <input type="submit" value="Submit!" />
-      <br><br><br>
-    </Form>
+        <br><br><br>
+        <div class="search-container">
+          <Form method="POST" action="/region" >
+            <input  type="text" name="Commune" placeholder="Entrez le nom de la Commune" />
+            <input type="submit" value="Soumettre" />
+            <br><br><br>
+          </Form>
+          </div>
   </body>
   {% endblock %}
 </html>

@@ -4,7 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='tout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='station.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>sites</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,26 +23,51 @@
               <li><a href="#">A propos</a></li>
           </ol>
       </header>
-
-    {% if result == [] %}
-    <p>Aucune Station Trouvé</p>
-    {% else %}
-    {% for station in result %}
-    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-        <button type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
-    </form>
-    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-        <button type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
-    </form>
+      <div id="slider">
+        {% for s in stations %}
+          {% if loop.index == 1 %}
+            <input type="radio" name="slider" id="slide{{ loop.index }}" checked>
+          {% else %}
+            <input type="radio" name="slider" id="slide{{ loop.index }}">
+          {% endif %}
+        {% endfor %}
+      
+        <div id="slides">
+          <div id="overflow">
+            <div class="inner">
+              {% for s in stations %}
+                <div class="slide slide_{{ loop.index }}">
+                  <div class="test">
+                    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
+                      <button id="textbutton" type="submit" name="stationss" value="{{ s.code_station }}">{{ s.libelle_station }}, {{ s.code_station }}</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
+                      <button type="submit" name="station_tr" value="{{ s.code_station }}">Observations en temps réel</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
+                      <button id="padding" type="submit" name="station_date" value="{{ s.code_station }}">Observations Datée</button>
+                    </form>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      
+        <div id="controls">
+          {% for s in stations %}
+            <label for="slide{{ loop.index }}"></label>
+          {% endfor %}
+        </div>
+      
+        <div id="bullets">
+          {% for s in stations %}
+            <label for="slide{{ loop.index }}"></label>
+          {% endfor %}
+        </div>
+      </div>
+      
     
-    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
-    <button type="submit" name="station_date" value="{{ station.code_station }}" >Obsertvations du (date)</button>
-    </form>
-
-    
-    <br>
-    {% endfor %}
-    {% endif %}
   </body>
   {% endblock %}
 </html>

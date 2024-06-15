@@ -1,67 +1,39 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    margin: 0;
-  }
+.search-container {
+  text-align: center; /* Centre le contenu horizontalement */
+  margin-top: 20px; /* Marge en haut du conteneur *
+  padding: 20px; /* Espacement intérieur */
+  border-radius: 10px; /* Coins arrondis */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombre légère */
+}
 
-  form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 400px;
-  }
+.search-container input[type="text"] {
+  padding: 15px; /* Ajoute un remplissage autour du champ de texte */
+  width: 400px; /* Largeur du champ de texte */
+  font-size: 18px; /* Taille de la police */
+  border: none; /* Supprime la bordure */
+  background-color: #555; /* Couleur de fond */
+  color: #fff; /* Couleur du texte */
+  border-radius: 25px; /* Coins arrondis */
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre interne */
+  outline: none; /* Supprime la bordure lorsqu'il est sélectionné */
+}
 
-  form input[type="text"] {
-    width: calc(100% - 22px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    box-sizing: border-box;
-    font-size: 16px;
-  }
+.search-container input[type="submit"] {
+  padding: 15px 30px; /* Ajoute un remplissage autour du bouton */
+  background-color: #4CAF50; /* Couleur de fond du bouton */
+  color: white; /* Couleur du texte du bouton */
+  border: none; /* Supprime la bordure */
+  border-radius: 25px; /* Coins arrondis */
+  cursor: pointer; /* Curseur de type pointeur */
+  font-size: 18px; /* Taille de la police */
+}
 
-  form input[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.search-container input[type="submit"]:hover {
+  background-color: #45a049; /* Changement de couleur de fond au survol */
+}
 
-  form input[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-
-  form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
-  }
-
-  form button:hover {
-    background-color: #0056b3;
-  }
-
-  h1 {
-    color: #333;
-    text-align: center;
-  }
+/* Style pour le conteneur du formulaire lorsqu'il est centré */
+.search-container form {
+  display: inline-block; /* Pour que le formulaire s'adapte à la largeur du contenu */
+  text-align: left; /* Alignement du texte à gauche à l'intérieur du formulaire */
+}

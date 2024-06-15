@@ -325,15 +325,35 @@ class Station:
         return tab        
     
     def research_tab(nom_ville):
-        like = "%"
-        like += nom_ville + like
-        cursor.execute("SELECT code_station, libelle_station, type_station FROM stations where libelle_commune LIKE ? ", (like,))
+        like = f"%{nom_ville}%"
+        cursor.execute("SELECT code_station, libelle_station, type_station, libelle_commune FROM stations WHERE libelle_commune LIKE ? ORDER BY libelle_commune ASC", (like,))
         result = cursor.fetchall()
-        tab = []
-
+        
+        commune_stations = {}  # Dictionnaire pour stocker les stations par commune
+        
         for row in result:
-            tab.append(Station(code_station = row[0],libelle_station=row[1],type_station=row[2],en_service=Station.station_actif(row[0])))
-        return tab   
+            code_station = row[0]
+            libelle_station = row[1]
+            type_station = row[2]
+            libelle_commune = row[3]
+            
+            station = {
+                'code_station': code_station,
+                'libelle_station': libelle_station,
+                'type_station': type_station,
+                'en_service': Station.station_actif(code_station)
+            }
+            
+            if libelle_commune in commune_stations:
+                commune_stations[libelle_commune].append(station)
+            else:
+                commune_stations[libelle_commune] = [station]
+        
+        # Convertir le dictionnaire en un tableau de tableau de stations par commune
+        tab = [commune_stations[commune] for commune in commune_stations]
+        
+        print(tab)
+        return tab
 
     def station_actif(code_station):
         cursor.execute("SELECT en_service, date_fermeture_station FROM stations where code_station = ?", (code_station,))
@@ -346,3 +366,5 @@ class Station:
             else:
                 return "Actif"
             
+
+Station.research_tab("crei")
