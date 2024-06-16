@@ -217,18 +217,8 @@ br {
 #slide1:checked ~ #controls label:nth-last-child(2),
 #slide2:checked ~ #controls label:nth-last-child(3),
 #slide3:checked ~ #controls label:nth-last-child(4),
-#slide4:checked ~ #controls label:nth-last-child(5),
-#slide5:checked ~ #controls label:nth-last-child(6),
-#slide6:checked ~ #controls label:nth-last-child(7),
-#slide7:checked ~ #controls label:nth-last-child(8),
-#slide8:checked ~ #controls label:nth-last-child(9),
-#slide9:checked ~ #controls label:nth-last-child(10),
-#slide10:checked ~ #controls label:nth-last-child(11),
-#slide11:checked ~ #controls label:nth-last-child(12),
-#slide12:checked ~ #controls label:nth-last-child(13),
-#slide13:checked ~ #controls label:nth-last-child(14),
-#slide14:checked ~ #controls label:nth-last-child(15),
-#slide15:checked ~ #controls label:nth-last-child(16) {
+#slide4:checked ~ #controls label:nth-last-child(1)
+ {
   background: url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
   float: left;
   margin: 0 0 0 -50px;
