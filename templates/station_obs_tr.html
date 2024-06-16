@@ -24,22 +24,29 @@
           </ol>
       </header>
     </div>
-    <div class="box">
+    <section class="box">
+      <div>
 
     {% if not observations %}
       <p>La Station n'a pas enregistré d'observations à ce jour</p>
       {% else %}
       {% for obs in observations %}
-      <p><strong>Code Station:</strong> {{ obs.code_station }}</p>
-      <p><strong>Date Debut Serie:</strong> {{ obs.date_debut_serie }}</p>
-      <p><strong>Date Fin Serie:</strong> {{ obs.date_fin_serie }}</p>
-      <p><strong>Date Observation:</strong> {{ obs.date_obs }}</p>
-      <p><strong>Resultat Observation:</strong> {{ obs.resultat_obs }}</p>
-      <p><strong>Continuite Observation Hydro:</strong> {{ obs.continuite_obs_hydro }}</p>
-    </div>
-
+      <div class="observation">
+        <div class="important">
+          <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }}</p>
+        </div>
+        <br><br>
+        <div class="secondary-info">
+          <p><strong>Date Debut Serie:</strong> {{ obs.date_debut_serie }}</p>
+          <p><strong>Date Fin Serie:</strong> {{ obs.date_fin_serie }}</p>
+          <p><strong>Date Observation:</strong> {{ obs.date_obs }}</p>
+          <p><strong>Continuite Observation Hydro:</strong> {{ obs.continuite_obs_hydro }}</p>
+        </div>
+      </div>
       {% endfor %}
     {% endif %}
+      </div>
+    </section>
   </body>
   {% endblock %}
 </html>
