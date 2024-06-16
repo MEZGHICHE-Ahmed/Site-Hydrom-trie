@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='erreur.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+  </head>
+  <body>
+    <div class="navbar">
+      <header>
+          <a href="{{ url_for('index') }}">Hydrovision</a>
+          <ol>
+              <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+              <li><a href="{{ url_for('stats') }}">Statisques de la Semaine</a></li>
+              <li><a href="{{ url_for('apropos') }}">A propos</a></li>
+          </ol>
+      </header>
+    </div>
+    <section>
+        
+    <div class="mainbox">
+      <div id="titre"><strong>OUPS !!</strong></div>
+      <div id="tex">La Station n'a pas enregistré d'observations à ce jour</p></div>
+        </div>
+      </section>
+  </body>
+    </html>
