@@ -24,16 +24,17 @@
       <table class="table table-striped mt-3">
         <thead>
           <tr>
-            <p>Date    et le     Débit Moyen (Mètre cube par seconde)</p>
+            <th>Date</th>
+            <th>Débit Moyen (Mètre cube par seconde)</th>
           </tr>
         </thead>
         <tbody>
           {% if observations %}
             {% for observation in observations %}
-            <section id="dat">
               <tr>
-                <p>{{ observation.date_obs_elab }} : {{ observation.resultat_obs_elab }}</p>
-            </section>
+                <td>{{ observation.date_obs_elab }}</td>
+                <td>{{ observation.resultat_obs_elab }}</td>
+              </tr>
             {% endfor %}
           {% else %}
             <tr>
