@@ -1,10 +1,11 @@
-* {
-    font-family: 'Nunito', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+*, *::after, *::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-size: cover;
 }
+
 
 body {
     font-family: 'Nunito', sans-serif;
@@ -14,79 +15,55 @@ body {
     background: url(images/pexels-eberhardgross-443446.jpg) no-repeat fixed center;
 }
 
-a {
-    text-decoration: none;
-    color: white;
-}
-
-a:hover {
-    color: white;
-    transition: 0.5s;
-}
-
-header {
+.container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 50px 0;
-}
-
-header > a {
-    font-weight: 700;
-    font-size: 24px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-header ol {
-    list-style-type: none;
-    display: flex;
-}
-
-header ol li {
-    font-weight: 600;
-    padding: 0 20px;
-}
-
-.navbar {
-    position: relative;
-    max-width: 1200px;
-    margin: auto;
-    height: auto;
-}
-
-.observation {
-
-    padding: 20px;
+    width: 100%;
+    max-width: 1600px;
+    margin-top: 1%;
     border-radius: 8px;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: black;
-}
-
-.important {
-    font-weight: 700;
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.secondary-info {
-    margin-top: 10px;
-}
-
-.message {
-    text-align: center;
-    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .box {
-    padding: 20px;
+    margin-bottom: 20px;
     border-radius: 8px;
-    margin: 20px auto;
-    max-width: 800px;
+    width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   
-    color: white;
+    color: black;
+    align-items: center;
+    padding: 20px;
+}
+
+h2, h3 {
+    color: black;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.block {
+    display: inline-block;
+    vertical-align: top;
+    margin: 20px;
+    padding: 1em;
+    border-radius: 8px;
+    background-color: #ffffffd8;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    width: calc(33% - 40px);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.block p {
+    margin: 0.5em 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+h1 {
+    font-family: "Poppins", sans-serif;
 }
