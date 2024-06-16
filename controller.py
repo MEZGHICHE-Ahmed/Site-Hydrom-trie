@@ -253,7 +253,7 @@ def sites(commune_name):
 @app.route('/stations/<code_site>', methods=['GET', 'POST'])
 def stations(code_site):
     stations = Station.search_station(code_site)
-
+    numbers = range(1, 5)
     if request.method == "POST":
 
         if "stationss" in request.form:
@@ -271,7 +271,7 @@ def stations(code_site):
             code_station = request.form.get('station_date')
             return redirect(url_for('stations_obs_date', code_station=code_station, date=None))
         
-    return render_template('station.html', stations=stations, code_site=code_site)
+    return render_template('station.html', stations=stations, code_site=code_site, numbers=numbers)
 
 
 @app.route('/stationsinfo/<code_station>', methods=['GET', 'POST'])
