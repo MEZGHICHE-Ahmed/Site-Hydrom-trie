@@ -13,13 +13,19 @@ p {
 body {
   font-family: 'Arial', sans-serif;
   height: 100vh;
-  margin: 0;
+  color: #fff;
   background-image: url(/static/images/rivier_commune.jpeg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-y: auto; /* Allow vertical scrolling if needed */
+}
+
+#dat {
+  margin-left: 50%;
+  margin-right: 50%;
+  color: #fff;
 }
 
 h1 {
