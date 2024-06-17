@@ -290,3 +290,7 @@ button {
   color: #005806;
   transition: 0.5s;
 }
+
+.inline {
+  display: inline-block;
+}

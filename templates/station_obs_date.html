@@ -40,9 +40,8 @@
             {% if observations %}
                 {% for obs in observations %}
                     <div class="observation-item">
-                        <p><strong>Date:</strong> {{ obs.date_obs }}</p>
-                        <p><strong>Code:</strong> {{ obs.code_station }}</p>
-                        <p><strong>Date de début:</strong> {{ obs.date_debut_serie }}</p>
+                        <p><strong>Code Station:</strong> {{ obs.code_station }}</p>
+                        <p><strong>Date :</strong> {{ obs.date_debut_serie }}</p>
                         <p><strong>Continuité:</strong> {{ obs.continuite_obs_hydro }}</p>
                         <p><strong>Résultat:</strong> 
                             {{ obs.resultat_obs }} 

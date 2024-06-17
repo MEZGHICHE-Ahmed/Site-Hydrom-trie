@@ -25,13 +25,14 @@
         <input type="hidden" name="code_station" value="{{ code_station }}">
         <div class="form-row">
             <div class="col">
-                <label for="date_debut">  Date de début : </label>
+                <label for="date_debut" id="paddebut" >  Date de début : </label>
                 <input type="date" class="form-control" id="date_debut" name="date_debut" required>
 
-                <label for="date_fin">Date de fin : </label>
+                <label for="date_fin" id="padfin">Date de fin : </label>
                 <input type="date" class="form-control" id="date_fin" name="date_fin" required>
             </div>
         </div>
+        
         <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
     </form>
     

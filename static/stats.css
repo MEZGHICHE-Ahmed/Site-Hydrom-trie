@@ -202,4 +202,11 @@
   br {
     margin-bottom: 20px;
   }
+
+  #padfin {
+    padding-left: 10%;
+  }
   
+  #paddebut {
+    padding-left: 4%;
+  }

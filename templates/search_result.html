@@ -41,7 +41,10 @@
             <section class="test">
               <button id="textbutton" type="submit" name="stationss" value="{{ station.code_station }}">{{ station.libelle_station }}, {{ station.code_station }}</button>
               <button  type="submit" name="station_tr" value="{{ station.code_station }}">Observations en temps réel</button>
-              <button  type="submit" name="station_date" value="{{ station.code_station }}">Obsertvations du (date)</button>
+              <div class="inline" >
+                <button  type="submit" name="station_date" value="{{ station.code_station }}">Obsertvations du (date)</button>
+                <button id="submit" type="submit" name="station_stats" value="{{ station.code_station }}">Observations élaborés</button>
+              </div>
             </section>
           {% endfor %}
           </form>
