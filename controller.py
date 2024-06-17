@@ -209,10 +209,10 @@ def search_result(commune_name):
         
         elif "station_tr" in request.form:
             code_station = request.form.get('station_tr')
-            obscheck = Observations.get_obs_tr(code_station)
+            obscheck = Observations.get_obs_tr(code_station, "H")
             if not obscheck:
                 return redirect(url_for('error.html'))
-            return redirect(url_for('stations_obs_tr', code_station=code_station))
+            return redirect(url_for('stations_obs_tr', code_station=code_station, unit="H"))
         
         elif "station_date" in request.form:
             code_station = request.form.get('station_date')
@@ -262,14 +262,22 @@ def stations(code_site):
         
         elif "station_tr" in request.form:
             code_station = request.form.get('station_tr')
-            obscheck = Observations.get_obs_tr(code_station)
+            obscheck = Observations.get_obs_tr(code_station, "H")
+            unit="H"
             if not obscheck:
                 return redirect(url_for('erreur'))
-            return redirect(url_for('stations_obs_tr', code_station=code_station))
+            return redirect(url_for('stations_obs_tr', code_station=code_station, unit=unit))
         
         elif "station_date" in request.form:
             code_station = request.form.get('station_date')
-            return redirect(url_for('stations_obs_date', code_station=code_station, date=None))
+
+            # Get today's date
+            today = datetime.now()
+
+            # Format the date as a string
+            formatted_date = today.strftime("%Y-%m-%d")
+            unit="H"
+            return redirect(url_for('stations_obs_date', code_station=code_station, date=formatted_date, unit=unit))
         
         elif "station_stats" in request.form:
             code_station = request.form.get('station_stats')
@@ -295,22 +303,27 @@ def stationsinfo(code_station):
 
 
 
-@app.route('/stations_obs_tr/<code_station>', methods=['GET', 'POST'])
-def stations_obs_tr(code_station):
-    observations = Observations.get_obs_tr(code_station)
-    return render_template('station_obs_tr.html', observations=observations, code_station=code_station) 
-
-
-@app.route('/stations_obs_date/<code_station>', methods=['GET', 'POST'])
-def stations_obs_date(code_station):
-    date = request.form.get('date')
-    observations = Observations.get_obs_date(code_station, date)
-    
+@app.route('/stations_obs_tr/<code_station>/<unit>', methods=['GET', 'POST'])
+def stations_obs_tr(code_station, unit):
+    observations = Observations.get_obs_tr(code_station, unit)
     if request.method == "POST":
-        if "get_date" in request.form:
+        unit = request.form.get('unit')
+        return redirect(url_for('stations_obs_tr', code_station=code_station, unit=unit))
+    return render_template('station_obs_tr.html', observations=observations, code_station=code_station, unit=unit) 
+
+
+@app.route('/stations_obs_date/<code_station>', defaults={'date': None, 'unit': 'H'}, methods=['GET', 'POST'])
+@app.route('/stations_obs_date/<code_station>/<date>/<unit>', methods=['GET', 'POST'])
+def stations_obs_date(code_station, date, unit):
+    if request.method == "POST":
             date = request.form.get('date')
-            return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
-    return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
+            unit = request.form.get('unit')
+            return redirect(url_for('stations_obs_date', code_station=code_station, date=date, unit=unit))
+    
+    observations = Observations.get_obs_date(code_station, date, unit)
+    return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station, unit=unit)
+
+
 
 @app.route('/stats/<code_station>', methods=['GET', 'POST'])
 def stats(code_station):

@@ -27,24 +27,48 @@
     <section class="box">
       <div>
 
-    {% if not observations %}
-      <p>La Station n'a pas enregistré d'observations à ce jour</p>
-      {% else %}
+
       {% for obs in observations %}
+      {% if unit == "H" %}
+      <form action="station_obs_tr" method="post">
+        <select name="unit">
+          <option value="H">Hauteur</option>
+          <option value="Q">Débit</option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+    {% else %}
+    <form action="station_obs_tr" method="post">
+      <select name="unit">
+        <option value="Q">Débit</option>
+        <option value="H">Hauteur</option>
+      </select>
+      <button type="submit">Submit</button>
+  </form>
+  {% endif %}
+
       <div class="observation">
         <div class="important">
-          <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }}</p>
+          {% if unit == "H" %}
+            <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }} mm (Millimètre) </p>
+          {% else %}
+            <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
+          {% endif %}
+
         </div>
         <br><br>
         <div class="secondary-info">
           <p><strong>Date Debut Serie:</strong> {{ obs.date_debut_serie }}</p>
           <p><strong>Date Fin Serie:</strong> {{ obs.date_fin_serie }}</p>
           <p><strong>Date Observation:</strong> {{ obs.date_obs }}</p>
-          <p><strong>Continuite Observation Hydro:</strong> {{ obs.continuite_obs_hydro }}</p>
+          {% if obs.continuite_obs_hydro == True %}
+          <p><strong> Observation Hydrométrique:</strong> Continue</p>
+          {% else %}
+          <p><strong> Observation Hydrométrique:</strong> Discontinue</p>
+          {% endif %}
         </div>
       </div>
       {% endfor %}
-    {% endif %}
       </div>
     </section>
   </body>
