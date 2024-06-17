@@ -31,7 +31,7 @@ class Observations:
         response = requests.get(url)
         
         # Vérifier que la requête a réussi (code de statut 200)
-        if response.status_code == 206 and Station.station_actif(code_station) == "Actif":
+        if response.status_code in (200, 206) and Station.station_actif(code_station) == "Actif":
             # Charger le contenu JSON
             data = response.json()  # json.loads(response.text) aussi fonctionnera
             
