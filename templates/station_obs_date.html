@@ -24,11 +24,24 @@
   
 
     <div class="container">
-        <h1>Observations for {{ code_station }} on {{ date }}</h1>
+        <h1>Observations du {{ date }}</h1>
         <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
-            <label for="date">Enter a date:</label>
+            <label for="date">Entrez une Date :</label>
             <input type="date" id="date" name="date" value="{{ date }}">
-            <button type="submit" name="get_date">Submit</button>
+            {% if unit == "H" %}
+            <form action="station_obs_tr" method="post">
+                <select name="unit">
+                    <option value="H">Hauteur</option>
+                    <option value="Q">Débit</option>
+                </select>
+                {% else %}
+                <form action="station_obs_tr" method="post">
+                    <select name="unit">
+                        <option value="Q">Débit</option>
+                        <option value="H">Hauteur</option>
+                    </select>
+                    {% endif %}
+                    <button type="submit" name="submit">Soumettre</button>
         </form>
         <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
             <button type="submit" name="evolution">Afficher l'évolution</button>

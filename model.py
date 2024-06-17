@@ -25,8 +25,8 @@ class Observations:
                 f"date_fin_serie={self.date_fin_serie}, date_obs={self.date_obs}, "
                 f"resultat_obs={self.resultat_obs}, continuite_obs_hydro={self.continuite_obs_hydro})")
 
-    def get_obs_tr(code_station):
-        url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&pretty&grandeur_hydro=H&fields=code_station,date_debut_serie,date_fin_serie,date_obs,resultat_obs,continuite_obs_hydro&cursor=&size=1'
+    def get_obs_tr(code_station, unit):
+        url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&pretty&grandeur_hydro={unit}&fields=code_station,date_debut_serie,date_fin_serie,date_obs,resultat_obs,continuite_obs_hydro&cursor=&size=1'
         # Télécharger le contenu du fichier JSON
         response = requests.get(url)
         
@@ -51,9 +51,9 @@ class Observations:
         else:
             return False
     
-    def get_obs_date(code_station, date):
+    def get_obs_date(code_station, date, unit):
         if date is not None:
-            url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&date_debut_obs={date}'
+            url = f'https://hubeau.eaufrance.fr/api/v1/hydrometrie/observations_tr?code_entite={code_station}&date_debut_obs={date}&date_fin_obs={date}&grandeur_hydro={unit}&size=20'
             # Télécharger le contenu du fichier JSON
             response = requests.get(url)
             
@@ -73,6 +73,7 @@ class Observations:
                         resultat_obs = obs['resultat_obs']
                         continuite_obs_hydro = obs['continuite_obs_hydro']
                         tab.append(Observations(code_station, date_debut_serie, date_fin_serie, date_obs, resultat_obs, continuite_obs_hydro))
+                        print(tab)
 
                         return tab
                     else:
