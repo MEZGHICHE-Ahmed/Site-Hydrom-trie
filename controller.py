@@ -329,7 +329,7 @@ def stations_obs_date(code_station, date, unit):
 def stats(code_station):
     observations = []
     plot_filename = None
-    search_performed = False  # Flag to indicate if a search has been performed
+    search_performed = False  # Flag pour savoir si une recherche a été effectuée
 
     if request.method == 'POST':
         search_performed = True
