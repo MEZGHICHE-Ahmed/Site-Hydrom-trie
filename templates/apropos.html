@@ -7,42 +7,52 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
     <title>À propos de notre site</title>
 </head>
-<div class="navbar">
-    <header>
-        <a href="{{ url_for('index') }}">Hydrovision</a>
-        <ol>
-            <li><a href="{{ url_for('search') }}">Rechercher</a></li>
-            <li><a href="{{ url_for('weekstats') }}">Statistiques de la Semaine</a></li>
-            <li><a href="{{ url_for('apropos') }}">A propos</a></li>
-        </ol>
-    </header>
-  </div>
 <body>
+    <div class="navbar">
+        <header>
+            <a href="{{ url_for('index') }}">Hydrovision</a>
+            <ol>
+                <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+                <li><a href="{{ url_for('weekstats') }}">Statistiques de la Semaine</a></li>
+                <li><a href="{{ url_for('apropos') }}">À propos</a></li>
+            </ol>
+        </header>
+    </div>
     <section id="tout" class="box">
-    <header>
-        <h1>À propos de notre site</h1>
-    </header>
-    <main>
-        <section class="mission">
-            <h2>Notre mission</h2>
-            <p>Notre mission est de centraliser et de rendre accessibles les données d'hydrométrie à travers des interfaces simples et conviviales, alimentées par les dernières technologies API. Nous visons à soutenir les efforts de gestion de l'eau, la prévision des inondations, la planification agricole, et bien plus encore, en offrant un accès facile aux informations critiques nécessaires à la prise de décision.</p>
-        </section>
-        
-        <section class="offer">
-            <h2>Ce que nous offrons</h2>
-            <ul>
-                <li><strong>Données précises et en temps réel :</strong> Nous utilisons des API robustes pour collecter et présenter des données d'hydrométrie actualisées et fiables.</li>
-                <li><strong>Interfaces conviviales :</strong> Notre site est conçu pour être intuitif et facile à naviguer, facilitant l'accès aux informations importantes pour nos utilisateurs.</li>
-                <li><strong>Support technique :</strong> Nous sommes engagés à fournir un support technique de qualité pour répondre à vos besoins et assurer une expérience utilisateur optimale.</li>
-            </ul>
-        </section>
-
-        <section class="why-choose">
-            <h2>Pourquoi nous choisir ?</h2>
-            <p>En choisissant Hydrovision, vous bénéficiez d'une plateforme qui combine expertise technologique et engagement envers l'accessibilité des données. Nous travaillons en étroite collaboration avec des experts en hydrométrie pour garantir la précision et la fiabilité des informations que nous fournissons.</p>
-        </section>
-    </main>
-
+        <header>
+            <h1>À propos de notre site</h1>
+        </header>
+        <main>
+            <section class="mission">
+                <h2>Notre mission</h2>
+                <p>Notre mission est de centraliser et de rendre accessibles les données d'hydrométrie à travers des interfaces simples et conviviales, alimentées par les dernières technologies API. Nous visons à soutenir les efforts de gestion de l'eau, la prévision des inondations, la planification agricole, et bien plus encore, en offrant un accès facile aux informations critiques nécessaires à la prise de décision.</p>
+            </section>
+            <section class="data-types">
+                <h2>Types de données disponibles</h2>
+                <ul>
+                    <li>
+                        <strong>Débits des cours d'eau :</strong>
+                        Mesure du volume d'eau passant en un point donné d'un cours d'eau par unité de temps, exprimé en mètres cubes par seconde (m³/s). Ces données permettent de suivre les variations du débit des rivières et des fleuves.
+                    </li>
+                    <li>
+                        <strong>Niveaux d'eau :</strong>
+                        Mesure de la hauteur de l'eau à différents points de mesure (stations) le long des cours d'eau. Ces niveaux sont exprimés en mètres et permettent de suivre les fluctuations des hauteurs d'eau.
+                    </li>
+                </ul>
+            </section>
+            <section class="offer">
+                <h2>Ce que nous offrons</h2>
+                <ul>
+                    <li><strong>Données précises et en temps réel :</strong> Nous utilisons des API robustes pour collecter et présenter des données d'hydrométrie actualisées et fiables.</li>
+                    <li><strong>Interfaces conviviales :</strong> Notre site est conçu pour être intuitif et facile à naviguer, facilitant l'accès aux informations importantes pour nos utilisateurs.</li>
+                    <li><strong>Support technique :</strong> Nous sommes engagés à fournir un support technique de qualité pour répondre à vos besoins et assurer une expérience utilisateur optimale.</li>
+                </ul>
+            </section>
+            <section class="why-choose">
+                <h2>Pourquoi nous choisir ?</h2>
+                <p>En choisissant Hydrovision, vous bénéficiez d'une plateforme qui combine expertise technologique et engagement envers l'accessibilité des données. Nous travaillons en étroite collaboration avec des experts en hydrométrie pour garantir la précision et la fiabilité des informations que nous fournissons.</p>
+            </section>
+        </main>
     </section>
 </body>
 </html>
