@@ -55,7 +55,11 @@
                         <p><strong>Code:</strong> {{ obs.code_station }}</p>
                         <p><strong>Date_debut:</strong> {{ obs.date_debut_serie }}</p>
                         <p><strong>Continuer:</strong> {{ obs.continuite_obs_hydro }}</p>
-                        <p><strong>Result:</strong> {{ obs.resultat_obs }}</p>
+                        {% if unit == "H" %}
+                        <p><strong>Result:</strong> {{ obs.resultat_obs }} mm (Millimètre) </p>
+                        {% else %}
+                        <p><strong>Result:</strong> {{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
+                        {% endif %}
                     </div>
                 {% endfor %}
             {% else %}
