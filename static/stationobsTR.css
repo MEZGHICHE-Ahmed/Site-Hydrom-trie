@@ -12,7 +12,11 @@ body {
     overflow: hidden;
     background-color: black;
     color: whitesmoke;
-    background: url(images/pexels-eberhardgross-443446.jpg) no-repeat fixed center;
+    background-image: url("/static/images/rivier_station.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    overflow-y: auto;
 }
 
 a {
@@ -74,6 +78,13 @@ header ol li {
     max-width: 800px; /* Ajuster la largeur maximale pour une meilleure présentation */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour mieux distinguer la section */
     color: black;
-    background-color: rgba(255, 255, 255, 0.5); /* 50% transparent white */
+    background-color: rgba(255, 255, 255, 0.8); /* 50% transparent white */
 
 }
+
+
+#result {
+    font-size: 200%;
+    text-align: center;
+}
+
