@@ -60,14 +60,14 @@
         </div>
       
         <div id="controls">
-          {% for n in numbers %}
-            <label for="slide{{ n }}"></label>
+          {% for s in stations %}
+            <label for="slide{{ loop.index }}"></label>
           {% endfor %}
         </div>
       
         <div id="bullets">
-          {% for n in numbers %}
-            <label for="slide{{ n }}"></label>
+          {% for s in stations %}
+            <label for="slide{{ loop.index }}"></label>
           {% endfor %}
         </div>
       </div>

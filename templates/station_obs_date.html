@@ -41,12 +41,14 @@
                     <div class="observation-item">
                         <div class="important">
                             {% if unit == "H" %}
-                              <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong></p>
-                              <br>
-                              <p id="result"><strong>{{ obs.resultat_obs }} mm (Millimètre)</strong></p>
-                            {% else %}
-                              <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
-                            {% endif %}
+                            <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong></p>
+                            <br>
+                            <p id="result"><strong>{{ obs.resultat_obs }} mm (Millimètre)</strong></p>
+                          {% else %}
+                          <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong></p>
+                          <br>
+                          <p id="result"><strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde)</strong></p>
+                          {% endif %}
                   
                           </div>
                           <br><br>

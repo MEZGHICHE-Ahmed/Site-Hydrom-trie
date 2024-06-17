@@ -292,7 +292,7 @@ class Site:
     
     # Affiche les commune disponibles dans le départements
     def search_commune(departement):
-        cursor.execute("SELECT DISTINCT sites.libelle_commune, COUNT(libelle_station), sites.code_commune FROM sites, stations where sites.code_site = stations.code_site AND sites.libelle_departement LIKE ? group by libelle_station", (departement,) )
+        cursor.execute("SELECT DISTINCT sites.libelle_commune, COUNT(libelle_station), sites.code_commune FROM sites, stations where sites.code_site = stations.code_site AND sites.libelle_departement LIKE ? group by sites.libelle_commune", (departement,) )
         result = cursor.fetchall()
         tab = []
 

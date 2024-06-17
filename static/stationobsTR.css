@@ -1,12 +1,11 @@
+/* Reset CSS */
 * {
-    font-family: 'Nunito', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-    background-size: cover;
 }
 
+/* Body styles */
 body {
     font-family: 'Nunito', sans-serif;
     overflow: hidden;
@@ -21,7 +20,7 @@ body {
 
 a {
     text-decoration: none;
-    color:white;
+    color: white;
 }
 
 a:hover {
@@ -29,6 +28,7 @@ a:hover {
     transition: 0.5s;
 }
 
+/* Navbar styles */
 header {
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,7 @@ header {
     padding: 50px 0;
 }
 
-header>a {
+header > a {
     font-weight: 700;
     font-size: 24px;
     text-transform: uppercase;
@@ -60,17 +60,45 @@ header ol li {
     height: auto;
 }
 
-.observation {
-    padding: 20px;
-    border-radius: 8px;
-    margin: 20px 0;
+/* Form styles */
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
-.message {
-    text-align: center;
-    margin-top: 20px;
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 10px;
+    background-color: white;
+    color: #333;
+    transition: border-color 0.3s ease;
 }
 
+select:focus {
+    outline: none;
+    border-color: #4CAF50; /* Couleur de bordure lorsqu'il est focus */
+}
+
+button[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049; /* Couleur de fond au survol */
+}
+
+/* Box styles */
 .box {
     padding: 20px;
     border-radius: 8px;
@@ -79,12 +107,37 @@ header ol li {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ajouter une ombre pour mieux distinguer la section */
     color: black;
     background-color: rgba(255, 255, 255, 0.8); /* 50% transparent white */
-
 }
 
+/* Observation styles */
+.observation {
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
 
+.observation .important {
+    margin-bottom: 20px;
+}
+
+.observation .important p {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.observation .secondary-info p {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+/* Result styles */
 #result {
     font-size: 200%;
     text-align: center;
 }
 
+/* Additional styles */
+.message {
+    text-align: center;
+    margin-top: 20px;
+}

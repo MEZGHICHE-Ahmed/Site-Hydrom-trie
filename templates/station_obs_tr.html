@@ -34,7 +34,7 @@
           <option value="H">Hauteur</option>
           <option value="Q">Débit</option>
         </select>
-        <button type="submit">Submit</button>
+        <button type="submit">Soumettre</button>
     </form>
     {% else %}
     <form action="station_obs_tr" method="post">
@@ -42,7 +42,7 @@
         <option value="Q">Débit</option>
         <option value="H">Hauteur</option>
       </select>
-      <button type="submit">Submit</button>
+      <button type="submit">Soumettre</button>
   </form>
   {% endif %}
 
@@ -53,7 +53,9 @@
             <br>
             <p id="result"><strong>{{ obs.resultat_obs }} mm (Millimètre)</strong></p>
           {% else %}
-            <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
+          <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong></p>
+          <br>
+          <p id="result"><strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde)</strong></p>
           {% endif %}
 
         </div>
