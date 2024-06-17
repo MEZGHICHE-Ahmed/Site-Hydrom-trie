@@ -345,11 +345,14 @@ def stats(code_station):
 
 @app.route('/apropos', methods=['GET', 'POST'])
 def apropos():
-    None
+    # Your code for the apropos view
+    return render_template('apropos.html')
 
 @app.route('/weekstats', methods=['GET', 'POST'])
-def apropos():
-    None
+def weekstats():
+    # Your code for the weekstats view
+    return render_template('weekstats.html')
+
 
 @app.route('/erreur', methods=['GET', 'POST'])
 def erreur():
