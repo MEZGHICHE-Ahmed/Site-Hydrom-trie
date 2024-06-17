@@ -6,7 +6,6 @@
     box-sizing: border-box;
 }
 
-
 body {
     font-family: 'Nunito', sans-serif;
     overflow: hidden;
@@ -66,4 +65,25 @@ a {
 
 h1 {
     font-family: "Poppins", sans-serif;
+}
+
+.more-info {
+    display: none;
+}
+
+.see-more-btn {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.see-more-btn:hover {
+    background-color: #45a049;
 }
