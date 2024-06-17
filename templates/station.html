@@ -19,7 +19,7 @@
           <a href="{{ url_for('index') }}">Hydrovision</a>
           <ol>
               <li><a href="{{ url_for('search') }}">Rechercher</a></li>
-              <li><a href="{{ url_for('stats') }}">Statisques de la Semaine</a></li>
+              <li><a href="">Statisques de la Semaine</a></li>
               <li><a href="{{ url_for('apropos') }}">A propos</a></li>
           </ol>
       </header>
@@ -48,6 +48,11 @@
                     </form>
                     <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
                       <button id="padding" type="submit" name="station_date" value="{{ s.code_station }}">Observations Datée</button>
+                    </form>
+                    <form method="POST" action="{{ url_for('stations', code_site=code_site) }}">
+                      <button id="submit" type="submit" name="station_stats" value="{{ s.code_station }}">Observations élaborés</button>
+                  </form>
+                  
                     </form>
                   </div>
                 </div>

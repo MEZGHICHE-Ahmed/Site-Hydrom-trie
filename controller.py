@@ -271,6 +271,10 @@ def stations(code_site):
             code_station = request.form.get('station_date')
             return redirect(url_for('stations_obs_date', code_station=code_station, date=None))
         
+        elif "station_stats" in request.form:
+            code_station = request.form.get('station_stats')
+            return redirect(url_for('stats', code_station=code_station))
+        
     return render_template('station.html', stations=stations, code_site=code_site, numbers=numbers)
 
 
@@ -297,23 +301,23 @@ def stations_obs_date(code_station):
             return redirect(url_for('stations_obs_date', code_station=code_station, date=date))
     return render_template('station_obs_date.html', observations=observations, date=date, code_station=code_station)
 
-@app.route('/stats', methods=['GET', 'POST'])
-def stats():
+@app.route('/stats/<code_station>', methods=['GET', 'POST'])
+def stats(code_station):
     observations = []
     plot_filename = None
-    
+
     if request.method == 'POST':
-        code_station = request.form['code_station']
-        date_fin = (datetime.now() - timedelta(days=1)).strftime('%Y-%m-%d')
-        date_debut = (datetime.now() - timedelta(days=8)).strftime('%Y-%m-%d')
         
-        observations = Observations.get_obs_elab(date_debut, date_fin, code_station=code_station)
-        render_template('stats.html', observations=observations)
+        date_debut = request.form.get('date_debut')
+        date_fin = request.form.get('date_fin')
+        print(f"code_station: {code_station}")
+        observations = Observations.get_obs_elab(date_debut, date_fin, code_station)
+
         if observations:
-            
-            plot_filename = Observations.graphe_elab(observations)  
-       
-    return render_template('stats.html', observations=observations, plot_filename=plot_filename)
+            plot_filename = Observations.graphe_elab(observations)
+
+    return render_template('stats.html', code_station=code_station, observations=observations, plot_filename=plot_filename)
+
 
 @app.route('/apropos', methods=['GET', 'POST'])
 def apropos():
