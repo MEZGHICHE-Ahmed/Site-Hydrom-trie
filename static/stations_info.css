@@ -20,10 +20,11 @@ body {
     align-items: center;
     width: 100%;
     max-width: 1600px;
-    margin-top: 1%;
+    margin: 5% auto; /* This centers the container horizontally */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
+
 
 .box {
     margin-bottom: 20px;

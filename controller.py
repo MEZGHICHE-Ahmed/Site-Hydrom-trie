@@ -280,8 +280,19 @@ def stations(code_site):
 
 @app.route('/stationsinfo/<code_station>', methods=['GET', 'POST'])
 def stationsinfo(code_station):
+
     stationsinfo = Station.get_all_info(code_station)
-    return render_template('stationsinfos.html', stationsinfo=stationsinfo, code_station=code_station)
+
+    date_fin = datetime.now()
+    date_fin = date_fin.strftime("%Y-%m-%d")
+    date_debut = datetime.now()
+    date_debut = date_debut.strftime("%Y-%m-%d")
+
+    f =Observations.get_obs_elab(date_debut, date_fin, code_station)
+    
+    return render_template('stationsinfos.html', stationsinfo=stationsinfo, code_station=code_station, f=f)
+
+
 
 
 @app.route('/stations_obs_tr/<code_station>', methods=['GET', 'POST'])

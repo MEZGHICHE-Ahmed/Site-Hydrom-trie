@@ -91,9 +91,14 @@ class Observations:
         if response.status_code in (200, 206):
             data = response.json()
             observations = data['data']
-            return observations
+            if observations == []:
+                return "Pas de données disponibles"
+            else:
+                return observations
         else:
-            return None    
+            return "Pas de données disponibles" 
+    
+       
     def graphe_elab(observations):
         dates = [datetime.datetime.strptime(obs['date_obs_elab'], '%Y-%m-%d').strftime('%d/%m/%Y') for obs in observations]
         values = [obs['resultat_obs_elab'] for obs in observations]
