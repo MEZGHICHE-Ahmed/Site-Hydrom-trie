@@ -9,63 +9,43 @@
 
 #tout {
   max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 20px auto;
 }
 
 body {
-  position: sticky;
-  background: url(images/rivi.jpeg);
+  background: url(images/rivi.jpeg) no-repeat center center fixed;
   background-size: cover;
   font-family: 'Nunito', sans-serif;
   line-height: 1.6;
   color: #fff;
   opacity: 95%;
-
 }
+
 
 .box {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  border-radius: 5%;
-  background-color: rgba(0, 0, 0, 0.329);
-  padding: 20px;
-  width: 70%; /* Largeur de la boîte */
-  margin: 0 auto; /* Centrer la boîte horizontalement */
+  background-color: rgba(0, 0, 0, 0.7);
   border-radius: 10px;
-
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
 }
 
-@keyframes scaling {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(2);
-  }
-  100% {
-    transform: scale(1);
-  }
+h1, h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
-
-@keyframes movement {
-  0% {
-    width: 20rem;
-    top: 10%;
-    right: 30%;
-    transform: rotate(0deg);
-  }
-  50% {
-    width: 50rem;
-    top: 20%;
-    right: -10%;
-    transform: rotate(180deg);
-  }
-  100% {
-    width: 20rem;
-    top: 10%;
-    right: 30%;
-    transform: rotate(360deg);
-  }
+p, ul, li {
+  color: #fff;
+  margin-bottom: 10px;
 }
 
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
