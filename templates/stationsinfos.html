@@ -34,7 +34,13 @@
             </section>
             <section class="block average-debit">
                 <h2>{{ station.libelle_station }}</h2>
-                <p><strong>Débit Moyen:</strong> {{ station.debit_moyen }}</p>
+                <p><strong>Débit Moyen :</strong>  {{ f }}</p>
+            </section>
+            <section class="block Operational">
+                <h3>Statut opérationnel</h3>
+                <p><strong>{{ station.en_service }}</strong></p>
+                <p><strong>Date de la fermeture de la station:</strong> {{ station.date_fermeture_station }}</p>
+                <p><strong>Date d'ouverture de la station:</strong> {{ station.date_ouverture_station }}</p>
             </section>
             <button class="see-more-btn">Voir Plus</button>
             <div class="more-info">
@@ -61,12 +67,6 @@
                     <p><strong>Code du département:</strong> {{ station.code_departement }}</p>
                     <p><strong>Code de la région:</strong> {{ station.code_region }}</p>
                     <p><strong>Libellé de la région:</strong> {{ station.libelle_region }}</p>
-                </section>
-                <section class="block Operational">
-                    <h3>Statut opérationnel</h3>
-                    <p><strong>{{ station.en_service }}</strong></p>
-                    <p><strong>Date de la fermeture de la station:</strong> {{ station.date_fermeture_station }}</p>
-                    <p><strong>Date d'ouverture de la station:</strong> {{ station.date_ouverture_station }}</p>
                 </section>
             </div>
         </div>
