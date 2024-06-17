@@ -329,9 +329,10 @@ def stations_obs_date(code_station, date, unit):
 def stats(code_station):
     observations = []
     plot_filename = None
+    search_performed = False  # Flag to indicate if a search has been performed
 
     if request.method == 'POST':
-        
+        search_performed = True
         date_debut = request.form.get('date_debut')
         date_fin = request.form.get('date_fin')
         print(f"code_station: {code_station}")
@@ -340,7 +341,8 @@ def stats(code_station):
         if observations:
             plot_filename = Observations.graphe_elab(observations)
 
-    return render_template('stats.html', code_station=code_station, observations=observations, plot_filename=plot_filename)
+    return render_template('stats.html', code_station=code_station, observations=observations, plot_filename=plot_filename, search_performed=search_performed)
+
 
 
 @app.route('/apropos', methods=['GET', 'POST'])
