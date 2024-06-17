@@ -4,7 +4,7 @@ import datetime
 import matplotlib.pyplot as plt
 import sqlite3
 import os
-import numpy as np
+
 DATABASE_FILE = "db_hydro.db"
 
 
@@ -99,55 +99,33 @@ class Observations:
         else:
             return "Pas de données disponibles" 
     
- 
+       
     def graphe_elab(observations):
-        # Convertir les dates et extraire les valeurs
         dates = [datetime.datetime.strptime(obs['date_obs_elab'], '%Y-%m-%d').strftime('%d/%m/%Y') for obs in observations]
         values = [obs['resultat_obs_elab'] for obs in observations]
 
-        # Convertir les dates en format datetime pour le détection des pics et des creux
-        dates_dt = [datetime.datetime.strptime(obs['date_obs_elab'], '%Y-%m-%d') for obs in observations]
-
-        # Convertir les valeurs en tableau numpy pour le calcul
-        data = np.array(values)
-
-        # Détection des pics et des creux
-        doublediff = np.diff(data)
-        peak_locations = np.where(doublediff > 0)[0] + 1  # Indices des pics (augmentation)
-        trough_locations = np.where(doublediff < 0)[0] + 1  # Indices des creux (diminution)
-
-        # Créer le graphique avec une taille de police augmentée
-        plt.figure(figsize=(16, 10))
-        plt.plot(dates, values, marker='o', linestyle='-', color='#1f77b4', linewidth=2, markersize=6, markerfacecolor='#ff7f0e', label='Débit Moyen')
-
-        # Marquer les pics avec des flèches et les chiffres correspondants
-        for loc in peak_locations:
-            plt.annotate(f'{values[loc]} ↑', xy=(dates[loc], values[loc]), xytext=(0, 20), textcoords='offset points', ha='center', fontsize=12, color='green', fontweight='bold')
-
-        # Marquer les creux avec des flèches et les chiffres correspondants
-        for loc in trough_locations:
-            plt.annotate(f'{values[loc]} ↓', xy=(dates[loc], values[loc]), xytext=(0, -30), textcoords='offset points', ha='center', fontsize=12, color='red', fontweight='bold')
-
-        # Ajouter des labels et un titre avec une taille de police plus grande
-        plt.xlabel('Date', fontsize=16, fontweight='bold')
-        plt.ylabel('Débit Moyen (Mètre Cube par Seconde)', fontsize=16, fontweight='bold')
-        plt.title('Débits Moyens Journaliers', fontsize=18, fontweight='bold')
-
-        # Améliorer la disposition des dates sur l'axe x
-        plt.xticks(rotation=45, fontsize=14)
-        plt.yticks(fontsize=14)
-        plt.grid(visible=True, linestyle='--', alpha=0.7)
+        plt.figure(figsize=(10, 5))
+        plt.plot(dates, values, marker='o', linestyle='-', color='#45a049')
+            # Ajouter les annotations des valeurs y sur les points
+        for date, value in zip(dates, values):
+            plt.annotate(f'{value}', xy=(date, value), xytext=(0, 5), textcoords='offset points', ha='center')
+        
+        plt.xlabel('Date')
+        plt.ylabel('Débit Moyen (Mètre Cube par Seconde)')
+        plt.title('Débits Moyens Journaliers')
+        
+        plt.xticks(rotation=45)
         plt.tight_layout()
 
         # Générer un nom de fichier unique basé sur le timestamp actuel
         filename = "graphe.png"
         filepath = os.path.join('static', filename)
-
+        
         # Sauvegarder l'image dans le répertoire static
-        plt.savefig(filepath, bbox_inches='tight', dpi=300)
+        plt.savefig(filepath, bbox_inches='tight')
         plt.close()
         return filename
-        
+       
     def get_evol_obs(code_station):
     # Prendre la date d'aujourd'hui
         aujourdhui = datetime.date.today()
