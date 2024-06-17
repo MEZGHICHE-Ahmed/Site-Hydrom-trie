@@ -100,6 +100,10 @@ class Observations:
 
         plt.figure(figsize=(10, 5))
         plt.plot(dates, values, marker='o', linestyle='-', color='b')
+            # Ajouter les annotations des valeurs y sur les points
+        for date, value in zip(dates, values):
+            plt.annotate(f'{value}', xy=(date, value), xytext=(0, 5), textcoords='offset points', ha='center')
+        
         plt.xlabel('Date')
         plt.ylabel('Débit Moyen (Mètre Cube par Seconde)')
         plt.title('Débits Moyens Journaliers')

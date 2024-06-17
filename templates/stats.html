@@ -13,23 +13,22 @@
         <a href="{{ url_for('index') }}">Hydrovision</a>
         <ol>
           <li><a href="{{ url_for('search') }}">Rechercher</a></li>
-          <li><a href="">Statistiques de la Semaine</a></li>
+          <li><a href="{{ url_for('stats', code_station=code_station) }}">Statistiques de la Semaine</a></li>
           <li><a href="{{ url_for('apropos') }}">À propos</a></li>
         </ol>
       </header>
     </div>
 
     <div class="container">
-      <h1 class="mt-5">Débits Moyens Journaliers de la station {{ code_station }} </h1>
+      <h1 class="mt-5">Débits Moyens Journaliers de la station {{ code_station }}</h1>
       <form method="POST" action="{{ url_for('stats', code_station=code_station) }}">
         <input type="hidden" name="code_station" value="{{ code_station }}">
         <div class="form-row">
             <div class="col">
-                <label for="date_debut">Date de début</label>
+                <label for="date_debut">  Date de début : </label>
                 <input type="date" class="form-control" id="date_debut" name="date_debut" required>
-            </div>
-            <div class="col">
-                <label for="date_fin">Date de fin</label>
+
+                <label for="date_fin">Date de fin : </label>
                 <input type="date" class="form-control" id="date_fin" name="date_fin" required>
             </div>
         </div>
@@ -44,17 +43,19 @@
           </tr>
         </thead>
         <tbody>
-          {% if observations %}
-            {% for observation in observations %}
+          {% if search_performed %}
+            {% if observations %}
+              {% for observation in observations %}
+                <tr>
+                  <td>{{ observation.date_obs_elab }}</td>
+                  <td>{{ observation.resultat_obs_elab }}</td>
+                </tr>
+              {% endfor %}
+            {% else %}
               <tr>
-                <td>{{ observation.date_obs_elab }}</td>
-                <td>{{ observation.resultat_obs_elab }}</td>
+                <td colspan="2">Aucune observation trouvée.</td>
               </tr>
-            {% endfor %}
-          {% else %}
-            <tr>
-              <td colspan="2">Aucune observation trouvée.</td>
-            </tr>
+            {% endif %}
           {% endif %}
         </tbody>
       </table>
