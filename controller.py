@@ -349,6 +349,10 @@ def stats(code_station):
 def apropos():
     None
 
+@app.route('/weekstats', methods=['GET', 'POST'])
+def apropos():
+    None
+
 @app.route('/erreur', methods=['GET', 'POST'])
 def erreur():
     return render_template('erreur.html')
