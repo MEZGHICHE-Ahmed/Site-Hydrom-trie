@@ -283,10 +283,10 @@ def stationsinfo(code_station):
 
     stationsinfo = Station.get_all_info(code_station)
 
-    date_fin = datetime.now()
+    date_debut = datetime.now() - timedelta(days=1)
+    date_debut= date_debut.strftime("%Y-%m-%d")
+    date_fin = datetime.now()- timedelta(days=1)
     date_fin = date_fin.strftime("%Y-%m-%d")
-    date_debut = datetime.now()
-    date_debut = date_debut.strftime("%Y-%m-%d")
 
     f =Observations.get_obs_elab(date_debut, date_fin, code_station)
     
