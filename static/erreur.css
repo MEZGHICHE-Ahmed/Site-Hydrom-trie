@@ -6,7 +6,10 @@
 }
 
 body {
-    background-image: url(/static/river-5524569_1920.jpg);
+    background-image: url(/static/images/river-5524569_1920.jpg);
+    background-repeat: no-repeat;
+
+    background-size: cover  ;
     font-family: 'Nunito', sans-serif;
     color: white;
     overflow: hidden;

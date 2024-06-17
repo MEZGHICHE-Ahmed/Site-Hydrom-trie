@@ -28,16 +28,16 @@
     <div class="container">
         {% for station in stationsinfo %}
         <div class="box station-info">
+            <section class="block Description">
+                <h2>Description</h2>
+                <p>{{ station.comentaire_station }} {{ station.libelle_site }} en {{ station.libelle_region }} ({{ station.code_departement }}).</p>
+            </section>
             <section class="block average-debit">
                 <h2>{{ station.libelle_station }}</h2>
                 <p><strong>Débit Moyen:</strong> {{ station.debit_moyen }}</p>
             </section>
             <button class="see-more-btn">Voir Plus</button>
             <div class="more-info">
-                <section class="block Description">
-                    <h2>Description</h2>
-                    <p>{{ station.comentaire_station }} {{ station.libelle_site }} en {{ station.libelle_region }} ({{ station.code_departement }}).</p>
-                </section>
                 <section class="block Details">
                     <h2>Détails de la station</h2>
                     <p><strong>Code de la station:</strong> {{ station.code_station }}</p>
