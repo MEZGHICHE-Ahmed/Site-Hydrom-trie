@@ -30,8 +30,6 @@ def centrevdl():
         return redirect(url_for('communes', departement_name=departement_name))
     return render_template('departement.html', departements=departements, route_path=route_path)
 
-
-
 @app.route('/bretagne', methods=['GET', 'POST'])
 def bretagne():
     route_path = 'bretagne'

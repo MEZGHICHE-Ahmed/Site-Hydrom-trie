@@ -11,11 +11,11 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-image: url('/static/images/rivier.jpg');
+  background-image: url("/static/images/rivier_station.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,7 +37,7 @@ h1, p {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 100px; /* Adjusted for fixed navbar */
+  margin-top: 50px; /* Adjusted for fixed navbar */
 }
 
 form {
@@ -69,7 +69,7 @@ form button {
   display: inline-block;
   width: 100%;
   padding: 10px;
-  background-color: #005806;
+  background-color: #4CAF50;
   color: white;
   border: none;
   border-radius: 5px;
@@ -79,7 +79,7 @@ form button {
 }
 
 form button:hover {
-  background-color: #004d05;
+  background-color: #0056b3;
 }
 
 .observation-list {
@@ -122,6 +122,7 @@ header ol li {
 }
 
 
+
 a {
   text-decoration: none;
   color: rgba(255, 255, 255, 0.733);
@@ -142,4 +143,9 @@ ol {
   max-width: 12000px;
   margin: auto;
   height: auto;
+}
+
+#result {
+  font-size: 200%;
+  text-align: center;
 }

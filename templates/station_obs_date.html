@@ -22,7 +22,9 @@
 </div>
 <body>
     <div class="container">
+        <br>
         <h1>Observations du {{ date }}</h1>
+        <br><br>
         <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
             <label for="date">Entrez une Date :</label>
             <input type="date" id="date" name="date" value="{{ date }}">
@@ -33,24 +35,30 @@
             </select>
             <button type="submit" name="submit">Soumettre</button>
         </form>
-        <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
-            <button type="submit" name="evolution">Afficher l'évolution</button>
-        </form>
+
         <div class="observation-list">
             {% if observations %}
                 {% for obs in observations %}
                     <div class="observation-item">
-                        <p><strong>Code Station:</strong> {{ obs.code_station }}</p>
-                        <p><strong>Date :</strong> {{ obs.date_debut_serie }}</p>
-                        <p><strong>Continuité:</strong> {{ obs.continuite_obs_hydro }}</p>
-                        <p><strong>Résultat:</strong> 
-                            {{ obs.resultat_obs }} 
+                        <div class="important">
                             {% if unit == "H" %}
-                                mm (Millimètre)
+                              <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong></p>
+                              <br>
+                              <p id="result"><strong>{{ obs.resultat_obs }} mm (Millimètre)</strong></p>
                             {% else %}
-                                m³/s (Mètre Cube par Seconde)
+                              <p><strong>Débits de la station ( {{ obs.code_station }} ):  </strong>{{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
                             {% endif %}
-                        </p>
+                  
+                          </div>
+                          <br><br>
+                          <div class="secondary-info">
+                            <p><strong>Date :</strong> {{ obs.date_debut_serie }}</p>
+                            {% if obs.continuite_obs_hydro == True %}
+                            <p><strong> Observation Hydrométrique:</strong> Continue</p>
+                            {% else %}
+                            <p><strong> Observation Hydrométrique:</strong> Discontinue</p>
+                            {% endif %}
+                          </div>
                     </div>
                 {% endfor %}
             {% else %}
