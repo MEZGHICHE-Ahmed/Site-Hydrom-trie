@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap');
+
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#tout {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body {
+  position: sticky;
+  background: url(images/rivi.jpeg);
+  background-size: cover;
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.6;
+  color: #fff;
+  opacity: 95%;
+
+}
+
+.box {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  border-radius: 5%;
+  background-color: rgba(0, 0, 0, 0.329);
+  padding: 20px;
+  width: 70%; /* Largeur de la boîte */
+  margin: 0 auto; /* Centrer la boîte horizontalement */
+  border-radius: 10px;
+
+}
+
+@keyframes scaling {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+@keyframes movement {
+  0% {
+    width: 20rem;
+    top: 10%;
+    right: 30%;
+    transform: rotate(0deg);
+  }
+  50% {
+    width: 50rem;
+    top: 20%;
+    right: -10%;
+    transform: rotate(180deg);
+  }
+  100% {
+    width: 20rem;
+    top: 10%;
+    right: 30%;
+    transform: rotate(360deg);
+  }
+}
+
