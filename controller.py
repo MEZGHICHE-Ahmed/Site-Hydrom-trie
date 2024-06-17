@@ -202,19 +202,36 @@ def search_result(commune_name):
 
         if "stationss" in request.form:
             code_station = request.form.get('stationss')
-            print(code_station)
             return redirect(url_for('stationsinfo', code_station=code_station))
         
         elif "station_tr" in request.form:
             code_station = request.form.get('station_tr')
+            unit="H"
             obscheck = Observations.get_obs_tr(code_station, "H")
             if not obscheck:
-                return redirect(url_for('error.html'))
-            return redirect(url_for('stations_obs_tr', code_station=code_station, unit="H"))
+                return redirect(url_for('erreur'))
+            return redirect(url_for('stations_obs_tr', code_station=code_station, unit=unit))
         
         elif "station_date" in request.form:
             code_station = request.form.get('station_date')
-            return redirect(url_for('stations_obs_date', code_station=code_station, date=None))
+
+            # Get today's date
+            today = datetime.now()
+
+            # Format the date as a string
+            formatted_date = today.strftime("%Y-%m-%d")
+            unit="H"
+            obscheck = Observations.get_obs_tr(code_station, "H")
+            if not obscheck:
+                return redirect(url_for('erreur'))
+            return redirect(url_for('stations_obs_date', code_station=code_station, date=formatted_date, unit=unit))
+        
+        elif "station_stats" in request.form:
+            code_station = request.form.get('station_stats')
+            obscheck = Observations.get_obs_tr(code_station, "H")
+            if not obscheck:
+                return redirect(url_for('erreur'))
+            return redirect(url_for('stats', code_station=code_station))
         
     
     return render_template('search_result.html', result=result, commune_name=commune_name)
@@ -260,8 +277,8 @@ def stations(code_site):
         
         elif "station_tr" in request.form:
             code_station = request.form.get('station_tr')
-            obscheck = Observations.get_obs_tr(code_station, "H")
             unit="H"
+            obscheck = Observations.get_obs_tr(code_station, "H")
             if not obscheck:
                 return redirect(url_for('erreur'))
             return redirect(url_for('stations_obs_tr', code_station=code_station, unit=unit))
@@ -275,10 +292,16 @@ def stations(code_site):
             # Format the date as a string
             formatted_date = today.strftime("%Y-%m-%d")
             unit="H"
+            obscheck = Observations.get_obs_tr(code_station, "H")
+            if not obscheck:
+                return redirect(url_for('erreur'))
             return redirect(url_for('stations_obs_date', code_station=code_station, date=formatted_date, unit=unit))
         
         elif "station_stats" in request.form:
             code_station = request.form.get('station_stats')
+            obscheck = Observations.get_obs_tr(code_station, "H")
+            if not obscheck:
+                return redirect(url_for('erreur'))
             return redirect(url_for('stats', code_station=code_station))
         
     return render_template('station.html', stations=stations, code_site=code_site, numbers=numbers)
