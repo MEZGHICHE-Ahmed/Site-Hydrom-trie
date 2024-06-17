@@ -4,62 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='recherche_date.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+    
     <title>Station Observations by Date</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<div class="navbar">
+    <header>
+        <a href="{{ url_for('index') }}">Hydrovision</a>
+        <ol>
+            <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+            <li><a href="{{ url_for('weekstats') }}">Statistiques de la Semaine</a></li>
+            <li><a href="{{ url_for('apropos') }}">A propos</a></li>
+        </ol>
+    </header>
+</div>
 <body>
-    <div class="navbar">
-        <header>
-            <a href="{{ url_for('index') }}">Hydrovision</a>
-            <ol>
-                <li><a href="{{ url_for('search') }}">Rechercher</a></li>
-                <li><a href="{{ url_for('weekstats') }}">Statistiques de la Semaine</a></li>
-                <li><a href="{{ url_for('apropos') }}">A propos</a></li>
-            </ol>
-        </header>
-      </div>
-  
-
     <div class="container">
         <h1>Observations du {{ date }}</h1>
         <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
             <label for="date">Entrez une Date :</label>
             <input type="date" id="date" name="date" value="{{ date }}">
-            {% if unit == "H" %}
-            <form action="station_obs_tr" method="post">
-                <select name="unit">
-                    <option value="H">Hauteur</option>
-                    <option value="Q">Débit</option>
-                </select>
-                {% else %}
-                <form action="station_obs_tr" method="post">
-                    <select name="unit">
-                        <option value="Q">Débit</option>
-                        <option value="H">Hauteur</option>
-                    </select>
-                    {% endif %}
-                    <button type="submit" name="submit">Soumettre</button>
+            <label for="unit">Sélectionnez une unité :</label>
+            <select name="unit" id="unit">
+                <option value="H" {% if unit == "H" %}selected{% endif %}>Hauteur</option>
+                <option value="Q" {% if unit == "Q" %}selected{% endif %}>Débit</option>
+            </select>
+            <button type="submit" name="submit">Soumettre</button>
         </form>
         <form method="POST" action="{{ url_for('stations_obs_date', code_station=code_station) }}">
             <button type="submit" name="evolution">Afficher l'évolution</button>
         </form>
-
         <div class="observation-list">
             {% if observations %}
                 {% for obs in observations %}
                     <div class="observation-item">
                         <p><strong>Date:</strong> {{ obs.date_obs }}</p>
                         <p><strong>Code:</strong> {{ obs.code_station }}</p>
-                        <p><strong>Date_debut:</strong> {{ obs.date_debut_serie }}</p>
-                        <p><strong>Continuer:</strong> {{ obs.continuite_obs_hydro }}</p>
-                        {% if unit == "H" %}
-                        <p><strong>Result:</strong> {{ obs.resultat_obs }} mm (Millimètre) </p>
-                        {% else %}
-                        <p><strong>Result:</strong> {{ obs.resultat_obs }} m³/s (Mètre Cube par Seconde) </p>
-                        {% endif %}
+                        <p><strong>Date de début:</strong> {{ obs.date_debut_serie }}</p>
+                        <p><strong>Continuité:</strong> {{ obs.continuite_obs_hydro }}</p>
+                        <p><strong>Résultat:</strong> 
+                            {{ obs.resultat_obs }} 
+                            {% if unit == "H" %}
+                                mm (Millimètre)
+                            {% else %}
+                                m³/s (Mètre Cube par Seconde)
+                            {% endif %}
+                        </p>
                     </div>
                 {% endfor %}
             {% else %}
