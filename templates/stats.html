@@ -1,70 +1,88 @@
 <!doctype html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Débits Moyens Journaliers</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='stats.css') }}">
-  </head>
-  <body>
-    <div class="navbar">
-      <header>
-        <a href="{{ url_for('index') }}">Hydrovision</a>
-        <ol>
-          <li><a href="{{ url_for('search') }}">Rechercher</a></li>
-          <li><a href="{{ url_for('apropos') }}">À propos</a></li>
-        </ol>
-      </header>
-    </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Débits Moyens Journaliers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='navbar.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='stats.css') }}">
+</head>
+<body>
+  <div class="navbar">
+    <header>
+      <a href="{{ url_for('index') }}">Hydrovision</a>
+      <ol>
+        <li><a href="{{ url_for('search') }}">Rechercher</a></li>
+        <li><a href="{{ url_for('apropos') }}">À propos</a></li>
+      </ol>
+    </header>
+  </div>
 
-    <div class="container">
-      <h1 class="mt-5">Débits Moyens Journaliers de la station {{ code_station }}</h1>
-      <form method="POST" action="{{ url_for('stats', code_station=code_station) }}">
-        <input type="hidden" name="code_station" value="{{ code_station }}">
-        <div class="form-row">
-            <div class="col">
-                <label for="date_debut" id="paddebut" >  Date de début : </label>
-                <input type="date" class="form-control" id="date_debut" name="date_debut" required>
+  <div class="container">
+    <h1 class="mt-5">Débits Moyens Journaliers de la station {{ code_station }}</h1>
+    <form method="POST" action="{{ url_for('stats', code_station=code_station) }}">
+      <input type="hidden" name="code_station" value="{{ code_station }}">
+      <div class="form-row">
+        <div class="col">
+          <label for="date_debut" id="paddebut">Date de début :</label>
+          <input type="date" class="form-control" id="date_debut" name="date_debut" required>
 
-                <label for="date_fin" id="padfin">Date de fin : </label>
-                <input type="date" class="form-control" id="date_fin" name="date_fin" required>
-            </div>
+          <label for="date_fin" id="padfin">Date de fin :</label>
+          <input type="date" class="form-control" id="date_fin" name="date_fin" required>
         </div>
-        
-        <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
+      </div>
+      
+      <button type="submit" class="btn btn-primary mt-3">Rechercher</button>
     </form>
     
-      <table class="table table-striped mt-3">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Débit Moyen (Mètre cube par seconde)</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% if search_performed %}
-            {% if observations %}
-              {% for observation in observations %}
-                <tr>
-                  <td>{{ observation.date_obs_elab }}</td>
-                  <td>{{ observation.resultat_obs_elab }}</td>
-                </tr>
-              {% endfor %}
-            {% else %}
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Débit Moyen (Mètre cube par seconde)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% if search_performed %}
+          {% if observations %}
+            {% for observation in observations %}
               <tr>
-                <td colspan="2">Aucune observation trouvée.</td>
+                <td>{{ observation.date_obs_elab }}</td>
+                <td>{{ observation.resultat_obs_elab }}</td>
               </tr>
-            {% endif %}
+            {% endfor %}
+          {% else %}
+            <tr>
+              <td colspan="2">Aucune observation trouvée.</td>
+            </tr>
           {% endif %}
-        </tbody>
-      </table>
-      {% if plot_filename %}
-        <div class="mt-5">
-          <h3>Graphique des Débits Moyens Journaliers</h3>
-          <img src="{{ url_for('static', filename=plot_filename) }}" alt="Graphique des Débits Moyens Journaliers" class="img-fluid">
+        {% endif %}
+      </tbody>
+    </table>
+
+    {% if plot_filename %}
+      <div class="mt-5">
+        <h3>Graphique des Débits Moyens Journaliers</h3>
+        <div class="graph-container">
+          <img src="{{ url_for('static', filename=plot_filename) }}" alt="Graphique des Débits Moyens Journaliers" class="img-fluid" id="graph-img">
+          <button id="fullscreen-btn" onclick="toggleFullScreen()">Plein Écran</button>
         </div>
-      {% endif %}
-    </div>
-  </body>
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- Script pour le plein écran -->
+  <script>
+    function toggleFullScreen() {
+      var elem = document.getElementById('graph-img');
+      if (!document.fullscreenElement) {
+        elem.requestFullscreen().catch(err => {
+          alert(`Erreur lors du passage en plein écran : ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  </script>
+</body>
 </html>

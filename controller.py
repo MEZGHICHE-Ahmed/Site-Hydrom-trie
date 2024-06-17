@@ -208,25 +208,13 @@ def search_result(commune_name):
         elif "station_tr" in request.form:
             code_station = request.form.get('station_tr')
             obscheck = Observations.get_obs_tr(code_station, "H")
-            unit="H"
             if not obscheck:
-                return redirect(url_for('erreur'))
-            return redirect(url_for('stations_obs_tr', code_station=code_station, unit=unit))
+                return redirect(url_for('error.html'))
+            return redirect(url_for('stations_obs_tr', code_station=code_station, unit="H"))
         
         elif "station_date" in request.form:
             code_station = request.form.get('station_date')
-
-            # Get today's date
-            today = datetime.now()
-
-            # Format the date as a string
-            formatted_date = today.strftime("%Y-%m-%d")
-            unit="H"
-            return redirect(url_for('stations_obs_date', code_station=code_station, date=formatted_date, unit=unit))
-        
-        elif "station_stats" in request.form:
-            code_station = request.form.get('station_stats')
-            return redirect(url_for('stats', code_station=code_station))
+            return redirect(url_for('stations_obs_date', code_station=code_station, date=None))
         
     
     return render_template('search_result.html', result=result, commune_name=commune_name)
