@@ -92,7 +92,7 @@ class Observations:
         if response.status_code in (200, 206):
             data = response.json()
             observations = data['data']
-            if observations or data == []:
+            if observations == []:
                 return "Pas de données disponibles"
             else:
                 return observations
